@@ -25,11 +25,11 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border-b border-white/20 dark:border-gray-700/30 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <img
               src={trufloLogo}
               alt="TruFlo Logo"
@@ -46,7 +46,7 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
+                className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors duration-200 font-medium text-sm"
               >
                 {item.label}
               </a>
@@ -57,11 +57,11 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-3">
             {user ? (
               <div className="flex items-center space-x-3">
-                <span className="text-sm text-gray-600 dark:text-gray-300">
-                  Welcome, {user.email}
+                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                  Welcome, {user.email.split('@')[0]}
                 </span>
                 <Button
-                  variant="outline"
+                  variant="glass"
                   size="sm"
                   onClick={() => navigate('/app')}
                 >
@@ -78,7 +78,7 @@ export default function Header() {
                   Log In
                 </Button>
                 <Button
-                  variant="primary"
+                  variant="glass"
                   size="sm"
                   onClick={() => navigate('/signup')}
                 >
@@ -90,11 +90,11 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="md:hidden p-2 rounded-lg hover:bg-white/20 dark:hover:bg-gray-800/50 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg
-              className="w-6 h-6 text-gray-600 dark:text-gray-300"
+              className="w-6 h-6 text-gray-700 dark:text-gray-300"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -110,22 +110,22 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="md:hidden py-4 border-t border-white/20 dark:border-gray-700/30 backdrop-blur-xl bg-white/80 dark:bg-gray-900/80">
             <nav className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors duration-200 py-2"
+                  className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors duration-200 py-2 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
-              <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
+              <div className="pt-3 border-t border-white/20 dark:border-gray-700/30">
                 {user ? (
                   <Button
-                    variant="primary"
+                    variant="glass"
                     size="sm"
                     onClick={() => {
                       navigate('/app');
@@ -149,7 +149,7 @@ export default function Header() {
                       Log In
                     </Button>
                     <Button
-                      variant="primary"
+                      variant="glass"
                       size="sm"
                       onClick={() => {
                         navigate('/signup');

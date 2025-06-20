@@ -145,6 +145,19 @@ a:hover {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Enhanced glass effects for header */
+.header-glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .header-glass {
+  background: rgba(17, 24, 39, 0.7);
+  border-bottom: 1px solid rgba(75, 85, 99, 0.3);
+}
+
 /* Animation utilities */
 .animate-fade-in {
   animation: fadeIn 0.5s ease-in-out;
@@ -152,6 +165,10 @@ a:hover {
 
 .animate-slide-up {
   animation: slideUp 0.5s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
 @keyframes fadeIn {
@@ -170,12 +187,17 @@ a:hover {
   }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
 /* Loading spinner */
 .spinner {
   width: 20px;
   height: 20px;
-  border: 2px solid var(--secondary-300);
-  border-top: 2px solid var(--primary-500);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid currentColor;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -213,4 +235,28 @@ a:hover {
 
 .dark ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary-500);
+}
+
+/* Improved button hover effects */
+.btn-hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Glass morphism utilities */
+.glass-card {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.dark .glass-card {
+  background: rgba(17, 24, 39, 0.2);
+  border: 1px solid rgba(75, 85, 99, 0.18);
 }
