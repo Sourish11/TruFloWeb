@@ -1,199 +1,343 @@
-import { Button } from '@/components/ui/button.tsx';
-import { Card, CardContent } from '@/components/ui/card.tsx';
-import { Accordion, AccordionItem } from '@/components/ui/accordion.tsx';
-import NotifyForm from '@/components/ui/NotifyForm';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '../components/ui/Button';
+import { Card, CardContent, CardHeader } from '../components/ui/Card';
+import { Input } from '../components/ui/Input';
+import { joinEarlyAccess } from '../hooks/joinEarlyAccess';
 import landingVideo from '../assets/landing-video.mp4';
-import AuthButtons from '../components/ui/AuthButtons';
+
 export default function TruFloLandingPage() {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const { notify } = joinEarlyAccess();
+  const navigate = useNavigate();
+
+  const handleEmailSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      await notify(email);
+      setSubmitted(true);
+      setEmail('');
+    } catch (error) {
+      console.error('Error submitting email:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const features = [
+    {
+      icon: '🧠',
+      title: 'AI-Powered Insights',
+      description: 'Smart task suggestions that adapt to your mood and energy levels'
+    },
+    {
+      icon: '🎯',
+      title: 'Mood-Based Planning',
+      description: 'Dynamic scheduling that matches tasks to your emotional state'
+    },
+    {
+      icon: '🏆',
+      title: 'Gamified Progress',
+      description: 'Streaks, badges, and rewards that make productivity fun'
+    },
+    {
+      icon: '👥',
+      title: 'Community Challenges',
+      description: 'Join challenges led by influencers and connect with like-minded people'
+    },
+    {
+      icon: '📊',
+      title: 'Smart Analytics',
+      description: 'Understand your patterns and optimize your productivity'
+    },
+    {
+      icon: '🔄',
+      title: 'Adaptive Learning',
+      description: 'The app learns from your behavior and improves over time'
+    }
+  ];
+
+  const stats = [
+    { number: '94%', label: 'Feel stuck in distractions' },
+    { number: '74%', label: 'Say existing solutions don\'t help' },
+    { number: '84%', label: 'Would try TruFlo' }
+  ];
+
   return (
-    <div className="space-y-16 w-full bg-neutral-950 text-white">
-      <div className="absolute top-6 right-6 z-50">
-        <AuthButtons />
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section */}
-      <section className="w-full min-h-[90vh] bg-[url('./assets/background.png')] bg-cover bg-center relative overflow-hidden text-center flex items-center justify-center">
-        <div className="relative z-10 space-y-6">
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-            Unlock Your <span className="text-indigo-500">Tru</span> Potential
-          </h1>
-          <p className="text-xl text-neutral-300">
-            Escape distractions. Build habits. Achieve your goals.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-blue-600 hover:bg-blue-700 text-black px-6 py-3 rounded-md shadow" onClick={() => window.open('https://discord.gg/eZHfGJTRNh', '_blank', 'noopener,noreferrer')}>
-              Join Beta / Join Discord
-            </button>
-            <button className="px-6 py-3 border border-neutral-300 text-black rounded-md hover:bg-white/10">
-              Get Early Access
-            </button>
-          </div>
-          <div className="inline-block text-center mt-8">
-            <h2 className="text-xl font-semibold">Join Early Access: </h2>
-            <NotifyForm />
-          </div>
+      <section className="relative overflow-hidden pt-20 pb-32">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-in">
+              Unlock Your{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Tru
+              </span>{' '}
+              Potential
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 animate-slide-up">
+              The first productivity app that understands your mood to help you break free from distractions and build lasting habits.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up">
+              <Button
+                size="lg"
+                onClick={() => window.open('https://discord.gg/eZHfGJTRNh', '_blank', 'noopener,noreferrer')}
+                className="text-lg px-8 py-4"
+              >
+                Join Beta Community
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => navigate('/signup')}
+                className="text-lg px-8 py-4"
+              >
+                Get Early Access
+              </Button>
+            </div>
 
+            {/* Email Signup */}
+            <Card className="max-w-md mx-auto glass-effect animate-slide-up">
+              <CardContent className="p-6">
+                <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
+                  Join the Waitlist
+                </h3>
+                {submitted ? (
+                  <div className="text-center">
+                    <div className="text-green-600 dark:text-green-400 mb-2">✓</div>
+                    <p className="text-green-600 dark:text-green-400">
+                      Thank you! You'll be notified when we launch.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleEmailSubmit} className="space-y-4">
+                    <Input
+                      type="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                    <Button
+                      type="submit"
+                      loading={isSubmitting}
+                      className="w-full"
+                    >
+                      Notify Me
+                    </Button>
+                  </form>
+                )}
+              </CardContent>
+            </Card>
+          </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-neutral-950" />
       </section>
 
-      <section className="space-y-16 py-24 px-6">
-        {/* About: What TruFlo Does */}
-        <section id="about" className="bg-black p-10 rounded-2xl shadow-lg grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <video
-            src={landingVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="rounded-xl shadow-lg w-full h-auto object-cover"
-          />
-          <div className="space-y-4">
-            <h2 className="text-3xl font-semibold">What TruFlo Does</h2>
-            <ul className="list-disc pl-5 space-y-2 text-lg text-neutral-300">
-              <li>🧠 AI-Powered Task Suggestions</li>
-              <li>🏆 Gamification: streaks, badges, rewards</li>
-              <li>🤝 Community & Influencer Challenges</li>
-            </ul>
+      {/* Stats Section */}
+      <section className="py-16 bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            {stats.map((stat, index) => (
+              <div key={index} className="animate-fade-in">
+                <div className="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                  {stat.number}
+                </div>
+                <p className="text-gray-600 dark:text-gray-300">{stat.label}</p>
+              </div>
+            ))}
           </div>
-        </section>
-
-        {/* Tagline */}
-        <section id="tagline" className="bg-black p-10 rounded-2xl shadow-lg">
-          <h3 className="text-xl font-semibold">“The productivity app that listens before it leads.”</h3>
-        </section>
-
-        {/* Mission */}
-        <section id="mission" className="bg-black p-10 rounded-2xl shadow-lg">
-          <h4 className="text-lg font-semibold mb-2">Our Mission</h4>
-          <p>To help people reclaim their focus by syncing productivity with how they feel — not how much they hustle.</p>
-        </section>
-
-        {/* Story */}
-        <section id="story" className="bg-black p-10 rounded-2xl shadow-lg">
-          <h4 className="text-lg font-semibold mb-2">Our Story</h4>
-          <p>TruFlo was born from a simple truth: most productivity apps don’t work because they ignore your <em>mood</em>. After seeing our friends and ourselves struggle with burnout, we set out to build something different — a tool that listens first, then guides.</p>
-        </section>
-
-        {/* Why We Exist */}
-        <section id="why-we-exist" className="bg-black p-10 rounded-2xl shadow-lg space-y-2">
-          <h4 className="text-lg font-semibold">Why We Exist</h4>
-          <ul className="list-disc pl-5 text-neutral-300">
-            <li>94% of people feel stuck in distractions.</li>
-            <li>74% say existing solutions don’t help.</li>
-            <li>84% said they’d try TruFlo.</li>
-          </ul>
-          <p>We exist to bridge that gap — between intention and action — using emotion-driven design, AI, and real community.</p>
-        </section>
-
-        {/* What Makes Us Different */}
-        <section id="what-makes-us-different" className="bg-black p-10 rounded-2xl shadow-lg">
-          <h4 className="text-lg font-semibold mb-2">What Makes Us Different</h4>
-          <table className="w-full text-left text-sm border border-neutral-700 rounded overflow-hidden">
-            <thead className="bg-neutral-700">
-              <tr>
-                <th className="p-3 border border-neutral-600">Feature</th>
-                <th className="p-3 border border-neutral-600">TruFlo</th>
-                <th className="p-3 border border-neutral-600">Others</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-neutral-600">
-              <tr><td className="p-3">Mood Recognition</td><td className="p-3">✅ Voice-based emotion check-ins</td><td className="p-3">❌ Ignored</td></tr>
-              <tr><td className="p-3">Personalized Challenges</td><td className="p-3">✅ Influencer-led + adaptive</td><td className="p-3">⚠ Static or solo tasks</td></tr>
-              <tr><td className="p-3">AI-Powered Routines</td><td className="p-3">✅ Learns your behavior daily</td><td className="p-3">⚠ Limited personalization</td></tr>
-              <tr><td className="p-3">Community Accountability</td><td className="p-3">✅ Leaderboards, XP, streaks</td><td className="p-3">⚠ Mostly solo-based</td></tr>
-            </tbody>
-          </table>
-        </section>
-
-        {/* How We Work */}
-        <section id="how-we-work" className="bg-black p-10 rounded-2xl shadow-lg">
-          <h4 className="text-lg font-semibold mb-2">How We Work</h4>
-          <ul className="list-disc pl-5 text-neutral-300">
-            <li><strong>AI-Personalized Task Flow:</strong> TruFlo learns your day-to-day patterns and reshapes your schedule dynamically.</li>
-            <li><strong>Voice-Based Mood Check-ins:</strong> Your emotions influence what shows up on your task list.</li>
-            <li><strong>Influencer Challenges:</strong> Daily and weekly missions led by creators you trust.</li>
-            <li><strong>XP-Driven Progress:</strong> Gain points, keep streaks alive, and stay accountable with your team.</li>
-          </ul>
-        </section>
-
-        {/* The Team */}
-        <section id="team" className="bg-black p-10 rounded-2xl shadow-lg">
-          <h4 className="text-lg font-semibold mb-2">The Team</h4>
-          <p>Founded by students. Driven by creators.</p>
-          <p>We’re a growing team passionate about behavior science, gamification, and building the future of meaningful work.</p>
-        </section>
-
-        {/* Closing Statement */}
-        <section id="closing" className="bg-black p-10 rounded-2xl shadow-lg text-center">
-          <p className="text-lg font-medium">Whether you're a student, a creator, or just someone trying to reclaim your time — <strong>TruFlo meets you where you are, and helps you flow forward.</strong></p>
-        </section>
+        </div>
       </section>
-
 
       {/* Problem Section */}
-      <section className="bg-neutral-900 p-10 rounded-2xl shadow-lg space-y-4">
-        <h2 className="text-3xl font-semibold">You’re not lazy. You’re overwhelmed.</h2>
-        <ul className="list-disc pl-5 text-lg text-neutral-300">
-          <li>📉 Task abandonment</li>
-          <li>😞 Guilt from time-wasting</li>
-          <li>🔄 Confusion around prioritization</li>
-        </ul>
+      <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              You're not lazy. You're overwhelmed.
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Traditional productivity apps ignore the most important factor: how you feel.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">📉</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    Task Abandonment
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    You start with good intentions but lose motivation halfway through.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">😞</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    Guilt from Time-Wasting
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    You know you're procrastinating but can't seem to stop.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">🔄</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    Confusion Around Priorities
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Everything feels urgent, but nothing feels important.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <video
+                src={landingVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="rounded-2xl shadow-2xl w-full"
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* Market Validation */}
-      <section className="bg-neutral-900 p-10 rounded-2xl shadow-lg space-y-4">
-        <h2 className="text-3xl font-semibold">Market Validation & Impact</h2>
-        <p>🎯 Total Addressable Market: Millions of productivity-seeking individuals</p>
-        <p>📊 Backed by survey insights and productivity trends</p>
+      {/* Features Section */}
+      <section id="features" className="py-20 bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              How TruFlo Works
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              We've reimagined productivity by putting your emotions at the center of the experience.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <Card key={index} hover className="h-full">
+                <CardContent className="p-6 text-center">
+                  <div className="text-4xl mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* Community Section */}
-      <section className="bg-neutral-900 p-10 rounded-2xl shadow-lg space-y-4">
-        <h2 className="text-3xl font-semibold">Community</h2>
-        <p>💬 Join our Discord to connect with early adopters!</p>
-        <button className="text-black mt-2" onClick={() => window.open('https://discord.gg/eZHfGJTRNh', '_blank', 'noopener,noreferrer')}>Join Discord</button>
+      {/* Comparison Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              What Makes Us Different
+            </h2>
+          </div>
+
+          <Card className="max-w-4xl mx-auto overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-gray-50 dark:bg-gray-700">
+                  <tr>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 dark:text-white">
+                      Feature
+                    </th>
+                    <th className="px-6 py-4 text-center text-sm font-semibold text-blue-600 dark:text-blue-400">
+                      TruFlo
+                    </th>
+                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-500 dark:text-gray-400">
+                      Others
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">Mood Recognition</td>
+                    <td className="px-6 py-4 text-center text-sm text-green-600 dark:text-green-400">✅ Voice-based emotion check-ins</td>
+                    <td className="px-6 py-4 text-center text-sm text-red-500 dark:text-red-400">❌ Ignored</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">Personalized Challenges</td>
+                    <td className="px-6 py-4 text-center text-sm text-green-600 dark:text-green-400">✅ Influencer-led + adaptive</td>
+                    <td className="px-6 py-4 text-center text-sm text-yellow-500 dark:text-yellow-400">⚠ Static or solo tasks</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">AI-Powered Routines</td>
+                    <td className="px-6 py-4 text-center text-sm text-green-600 dark:text-green-400">✅ Learns your behavior daily</td>
+                    <td className="px-6 py-4 text-center text-sm text-yellow-500 dark:text-yellow-400">⚠ Limited personalization</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">Community Accountability</td>
+                    <td className="px-6 py-4 text-center text-sm text-green-600 dark:text-green-400">✅ Leaderboards, XP, streaks</td>
+                    <td className="px-6 py-4 text-center text-sm text-yellow-500 dark:text-yellow-400">⚠ Mostly solo-based</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </Card>
+        </div>
       </section>
 
-      {/* Roadmap */}
-      <section className="bg-neutral-900 p-10 rounded-2xl shadow-lg space-y-4">
-        <h2 className="text-3xl font-semibold">Roadmap</h2>
-        <ul className="list-disc pl-5 text-neutral-300">
-          <li>Q2: Beta launch</li>
-          <li>Q3: Premium features rollout</li>
-          <li>Q4: Mobile expansion + AI V2</li>
-        </ul>
-      </section>
-
-      {/* Team */}
-      <section className="bg-neutral-900 p-10 rounded-2xl shadow-lg space-y-4">
-        <h2 className="text-3xl font-semibold">Meet the Team</h2>
-        <p>👥 Passionate developers, designers, and productivity nerds on a mission to help you thrive.</p>
-      </section>
-
-      {/* FAQ */}
-      <section className="bg-neutral-900 p-10 rounded-2xl shadow-lg space-y-4">
-        <h2 className="text-3xl font-semibold">FAQs</h2>
-        <Accordion>
-          <AccordionItem title="What is TruFlo?">
-            TruFlo is a habit-building productivity app using AI and gamification to help you stay focused.
-          </AccordionItem>
-          <AccordionItem title="Is there a free version?">
-            Yes! You can get started for free and upgrade later if you'd like.
-          </AccordionItem>
-        </Accordion>
-      </section>
-
-      {/* Email Signup */}
-      <section className="bg-neutral-900 p-10 rounded-2xl shadow-lg space-y-4">
-        <h2 className="text-3xl font-semibold">Join the Waitlist</h2>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="p-3 border border-neutral-700 bg-neutral-800 rounded-md w-full max-w-md text-white placeholder-neutral-500"
-        />
-        <button className="text-black mt-2">Notify Me</button>
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Transform Your Productivity?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Join thousands of others who are already building better habits with TruFlo.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              variant="secondary"
+              onClick={() => navigate('/signup')}
+              className="text-lg px-8 py-4"
+            >
+              Start Your Journey
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => window.open('https://discord.gg/eZHfGJTRNh', '_blank', 'noopener,noreferrer')}
+              className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-blue-600"
+            >
+              Join Community
+            </Button>
+          </div>
+        </div>
       </section>
     </div>
-
   );
 }
