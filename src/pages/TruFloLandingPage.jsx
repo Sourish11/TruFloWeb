@@ -76,6 +76,44 @@ export default function TruFloLandingPage() {
     }
   ];
 
+  const workflowSteps = [
+    {
+      step: 'Feel',
+      title: 'Check-in',
+      icon: '😊',
+      description: 'Tap an emoji or let the mic read vocal energy.',
+      color: 'from-blue-500/20 to-blue-600/20 border-blue-400/30'
+    },
+    {
+      step: 'Think',
+      title: 'Flow Plan',
+      icon: '🧠',
+      description: 'AI slots tasks into optimal focus blocks (work + rest).',
+      color: 'from-purple-500/20 to-purple-600/20 border-purple-400/30'
+    },
+    {
+      step: 'Do',
+      title: 'Focus Mode',
+      icon: '🎯',
+      description: 'Enter a timer thread. Distractions silenced; XP ticking.',
+      color: 'from-green-500/20 to-green-600/20 border-green-400/30'
+    },
+    {
+      step: 'Reflect',
+      title: 'Mood & Stats',
+      icon: '📊',
+      description: 'End-of-day recap shows streaks, mood trends, and time-on-task.',
+      color: 'from-orange-500/20 to-orange-600/20 border-orange-400/30'
+    },
+    {
+      step: 'Grow',
+      title: 'Challenges & Rewards',
+      icon: '🏆',
+      description: 'Join creator missions, climb leaderboards, and unlock badges.',
+      color: 'from-red-500/20 to-red-600/20 border-red-400/30'
+    }
+  ];
+
   const stats = [
     { number: '94%', label: 'Feel stuck in distractions' },
     { number: '74%', label: 'Say existing solutions don\'t help' },
@@ -118,6 +156,45 @@ export default function TruFloLandingPage() {
       quote: 'The emotional intelligence built into TruFlo is remarkable. It\'s like having a productivity coach that truly understands human psychology.',
       credentials: 'PhD in Materials Science, 100+ peer-reviewed publications, Industry innovation award winner',
       demo: 'Dr. Hawkins implemented TruFlo across his research team, finding that the mood-aware task distribution improved team collaboration and individual performance. The app helped reduce burnout while maintaining high research standards.'
+    }
+  ];
+
+  const comparisonData = [
+    {
+      feature: 'Mood-based task reshuffle',
+      truflo: 'Yes',
+      others: 'No',
+      trufloColor: 'text-green-400',
+      othersColor: 'text-red-400',
+      trufloIcon: '✅',
+      othersIcon: '❌'
+    },
+    {
+      feature: 'Creator-led challenges',
+      truflo: 'Yes',
+      others: 'Rare',
+      trufloColor: 'text-green-400',
+      othersColor: 'text-yellow-400',
+      trufloIcon: '✅',
+      othersIcon: '⚠'
+    },
+    {
+      feature: 'Built-in community XP',
+      truflo: 'Yes',
+      others: 'Some, but siloed',
+      trufloColor: 'text-green-400',
+      othersColor: 'text-yellow-400',
+      trufloIcon: '✅',
+      othersIcon: '⚠'
+    },
+    {
+      feature: 'Freemium + $4.99 Pro',
+      truflo: 'Affordable',
+      others: '$7–15/mo subs or one-time fees',
+      trufloColor: 'text-green-400',
+      othersColor: 'text-yellow-400',
+      trufloIcon: '✅',
+      othersIcon: '⚠'
     }
   ];
 
@@ -227,6 +304,59 @@ export default function TruFloLandingPage() {
           </ModalContent>
         </Card>
       </Modal>
+
+      {/* What is TruFlo Section */}
+      <section className="section-spacing">
+        <div className="container mx-auto px-4">
+          <div className="glass-enhanced rounded-2xl p-12 max-w-5xl mx-auto">
+            <div className="visual-hierarchy">
+              <h2 className="page-title text-white mb-8 drop-shadow-2xl">
+                What is TruFlo?
+              </h2>
+              <p className="text-lg text-white/90 leading-relaxed drop-shadow-lg max-w-4xl">
+                TruFlo is a next-gen productivity platform that blends emotion AI, gamified XP, and creator-led challenges to keep 16- to 35-year-olds locked into deep work—without resorting to will-power alone. Where traditional apps nag, TruFlo adapts: detecting how you feel and serving the task you're most likely to crush right now!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How TruFlo Works (In 90 Seconds) Section */}
+      <section className="section-spacing">
+        <div className="container mx-auto px-4">
+          <div className="visual-hierarchy mb-16">
+            <h2 className="page-title text-white mb-6 drop-shadow-2xl">
+              How TruFlo Works (In 90 Seconds)
+            </h2>
+            <p className="text-lg text-white/90 drop-shadow-lg">
+              Five simple steps to transform your productivity workflow.
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+              {workflowSteps.map((step, index) => (
+                <Card key={index} className="glass-enhanced shadow-xl hover:scale-[1.02] transition-all duration-300">
+                  <CardContent className="p-6 text-center">
+                    <div className={`w-16 h-16 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center mx-auto mb-4 border shadow-lg`}>
+                      <span className="text-2xl drop-shadow-md">{step.icon}</span>
+                    </div>
+                    <div className="ui-number text-sm font-bold text-white/60 mb-2 drop-shadow-sm">
+                      {step.step}
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-3 drop-shadow-md">
+                      {step.title}
+                    </h3>
+                    <p className="text-white/80 text-sm leading-relaxed drop-shadow-sm">
+                      {step.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Features Section - Moved to appear right after Hero */}
       <section id="features" className="section-spacing">
@@ -420,52 +550,48 @@ export default function TruFloLandingPage() {
         </div>
       </section>
 
-      {/* Comparison Section */}
+      {/* Competitive Edge Section */}
       <section className="section-spacing">
         <div className="container mx-auto px-4">
           <div className="visual-hierarchy mb-16">
             <h2 className="page-title text-white mb-6 drop-shadow-2xl">
-              What Makes Us Different
+              Competitive Edge
             </h2>
+            <p className="text-lg text-white/90 drop-shadow-lg mb-8">
+              TruFlo is the first platform that starts a productivity session based on how you feel at that moment—no one else does that.
+            </p>
           </div>
 
-          <Card className="max-w-4xl mx-auto overflow-hidden glass-enhanced shadow-2xl">
+          <Card className="max-w-5xl mx-auto overflow-hidden glass-enhanced shadow-2xl">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-white/5 border-b border-white/10">
                   <tr>
                     <th className="px-6 py-4 text-left text-sm font-semibold text-white drop-shadow-md">
-                      Feature
+                      TruFlo vs. Others
                     </th>
                     <th className="ui-text px-6 py-4 text-center text-sm font-semibold gradient-text-white drop-shadow-md">
                       TruFlo
                     </th>
                     <th className="ui-text px-6 py-4 text-center text-sm font-semibold text-white/60 drop-shadow-md">
-                      Others
+                      Typical Productivity App
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/10">
-                  <tr>
-                    <td className="px-6 py-4 text-sm text-white drop-shadow-sm">Mood Recognition</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Voice-based emotion check-ins</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-red-400 drop-shadow-sm">❌ Ignored</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 text-sm text-white drop-shadow-sm">Personalized Challenges</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Influencer-led + adaptive</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-yellow-400 drop-shadow-sm">⚠ Static or solo tasks</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 text-sm text-white drop-shadow-sm">AI-Powered Routines</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Learns your behavior daily</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-yellow-400 drop-shadow-sm">⚠ Limited personalization</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 text-sm text-white drop-shadow-sm">Community Accountability</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Leaderboards, XP, streaks</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-yellow-400 drop-shadow-sm">⚠ Mostly solo-based</td>
-                  </tr>
+                  {comparisonData.map((row, index) => (
+                    <tr key={index}>
+                      <td className="px-6 py-4 text-sm text-white drop-shadow-sm font-medium">
+                        {row.feature}
+                      </td>
+                      <td className={`ui-text px-6 py-4 text-center text-sm ${row.trufloColor} drop-shadow-sm font-medium`}>
+                        {row.trufloIcon} {row.truflo}
+                      </td>
+                      <td className={`ui-text px-6 py-4 text-center text-sm ${row.othersColor} drop-shadow-sm font-medium`}>
+                        {row.othersIcon} {row.others}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
