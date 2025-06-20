@@ -9,16 +9,16 @@ const Button = forwardRef(({
   disabled = false,
   ...props 
 }, ref) => {
-  const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden';
   
   const variants = {
-    primary: 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white focus:ring-blue-500 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5',
-    secondary: 'bg-gray-100 hover:bg-gray-200 text-gray-900 focus:ring-gray-500 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 shadow-md hover:shadow-lg',
-    outline: 'border-2 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 focus:ring-gray-500 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:border-gray-500 transition-all duration-200',
-    ghost: 'text-gray-700 hover:bg-gray-100/80 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800/50 backdrop-blur-sm transition-all duration-200',
-    glass: 'backdrop-blur-xl bg-white/20 hover:bg-white/30 border border-white/30 text-gray-800 hover:text-gray-900 dark:bg-gray-800/20 dark:hover:bg-gray-800/30 dark:border-gray-700/30 dark:text-gray-200 dark:hover:text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5',
-    danger: 'bg-red-600 hover:bg-red-700 text-white focus:ring-red-500 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200',
-    success: 'bg-green-600 hover:bg-green-700 text-white focus:ring-green-500 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200'
+    primary: 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 border border-white/20',
+    secondary: 'glass-button shadow-md hover:shadow-lg',
+    outline: 'border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm',
+    ghost: 'text-white/90 hover:text-white hover:bg-white/10 transition-all duration-300 backdrop-blur-sm',
+    glass: 'glass-button font-medium',
+    danger: 'bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 border border-white/20',
+    success: 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 border border-white/20'
   };
 
   const sizes = {
@@ -37,10 +37,13 @@ const Button = forwardRef(({
       disabled={disabled || loading}
       {...props}
     >
+      {/* Subtle glow effect on hover */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+      
       {loading && (
         <div className="spinner mr-2" />
       )}
-      {children}
+      <span className="relative z-10">{children}</span>
     </button>
   );
 });

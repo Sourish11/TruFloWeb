@@ -25,9 +25,9 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border-b border-white/20 dark:border-gray-700/30 shadow-sm">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+    <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-6xl">
+      <div className="glass-nav rounded-full px-6 py-3 animate-fade-in">
+        <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <img
@@ -35,7 +35,7 @@ export default function Header() {
               alt="TruFlo Logo"
               className="h-8 w-auto"
             />
-            <span className="text-xl font-bold text-gray-900 dark:text-white">
+            <span className="text-xl font-bold text-white">
               TruFlo
             </span>
           </Link>
@@ -46,9 +46,10 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors duration-200 font-medium text-sm"
+                className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-sm relative group"
               >
                 {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </nav>
@@ -57,7 +58,7 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-3">
             {user ? (
               <div className="flex items-center space-x-3">
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                <span className="text-sm text-white/80 font-medium">
                   Welcome, {user.email.split('@')[0]}
                 </span>
                 <Button
@@ -90,11 +91,11 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-white/20 dark:hover:bg-gray-800/50 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg
-              className="w-6 h-6 text-gray-700 dark:text-gray-300"
+              className="w-6 h-6 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -110,19 +111,19 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-white/20 dark:border-gray-700/30 backdrop-blur-xl bg-white/80 dark:bg-gray-900/80">
+          <div className="md:hidden mt-4 pt-4 border-t border-white/20">
             <nav className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors duration-200 py-2 font-medium"
+                  className="text-white/90 hover:text-white transition-colors duration-300 py-2 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
-              <div className="pt-3 border-t border-white/20 dark:border-gray-700/30">
+              <div className="pt-3 border-t border-white/20">
                 {user ? (
                   <Button
                     variant="glass"
