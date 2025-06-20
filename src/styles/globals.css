@@ -50,29 +50,32 @@
   --space-20: 10rem;   /* 160px */
 }
 
-/* Base Styles - NO GLOWING EFFECTS */
+/* CRITICAL: Remove ALL viewport-level glowing effects */
 * {
   box-sizing: border-box;
-  border: none;
-  outline: none;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  box-shadow: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  box-shadow: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   color: #1f2937;
@@ -117,16 +120,17 @@ body::after {
   pointer-events: none;
 }
 
-/* Content wrapper - completely sharp */
+/* Content wrapper - completely sharp, no glowing */
 #root {
   position: relative;
   z-index: 1;
   filter: none;
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  box-shadow: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
 }
 
 /* Dark mode styles */
@@ -151,6 +155,9 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   color: #ffffff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 p {
@@ -158,6 +165,9 @@ p {
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Links */
@@ -166,6 +176,9 @@ a {
   text-decoration: none;
   transition: all 0.3s ease;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 a:hover {
@@ -174,9 +187,9 @@ a:hover {
 
 /* Focus styles for accessibility - NO GLOWING */
 *:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline: 2px solid rgba(255, 255, 255, 0.6) !important;
   outline-offset: 2px;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 /* Glass Morphism Base Classes - NO GLOWING EFFECTS */
@@ -500,27 +513,28 @@ body {
   }
 }
 
-/* Remove any potential borders from the viewport - NO GLOWING */
+/* CRITICAL: Completely remove any viewport-level borders or glowing effects */
 html, body, #root {
   border: none !important;
   outline: none !important;
   margin: 0 !important;
   padding: 0 !important;
   box-shadow: none !important;
+  background: transparent !important;
 }
 
-/* Ensure full viewport coverage */
+/* Ensure full viewport coverage without any borders */
 html, body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
 }
 
-/* Remove default browser styling - NO GLOWING */
-* {
-  border: none;
-  outline: none;
-  box-shadow: none;
+/* Remove ALL default browser styling that could cause glowing */
+*, *::before, *::after {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Ensure no gaps or borders around the page */
@@ -530,15 +544,36 @@ body {
   min-height: 100vh;
 }
 
-/* Remove any potential glowing effects from all elements */
-*, *::before, *::after {
-  box-shadow: none !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+/* Override any potential browser-specific glowing effects */
+html {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
 }
 
-/* Exception for headings to maintain readability */
+body {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+#root {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Exception for text shadows to maintain readability */
 h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+p {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+a {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Exception for specific glass effects that need subtle shadows for depth */
@@ -584,4 +619,19 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 640px) {
   .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* FINAL OVERRIDE: Remove any remaining glowing effects */
+* {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Only allow specific shadows for glass components and text readability */
+.glass, .glass-nav, .glass-card, .glass-button, .glass-enhanced,
+h1, h2, h3, h4, h5, h6, p, a {
+  /* These elements are specifically allowed to have shadows as defined above */
 }
