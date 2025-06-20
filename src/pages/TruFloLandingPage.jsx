@@ -10,6 +10,7 @@ export default function TruFloLandingPage() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [showWaitlist, setShowWaitlist] = useState(false);
   const { notify } = joinEarlyAccess();
   const navigate = useNavigate();
 
@@ -25,6 +26,10 @@ export default function TruFloLandingPage() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleGetEarlyAccess = () => {
+    setShowWaitlist(true);
   };
 
   const features = [
@@ -94,47 +99,49 @@ export default function TruFloLandingPage() {
               <Button
                 variant="glass"
                 size="lg"
-                onClick={() => navigate('/signup')}
+                onClick={handleGetEarlyAccess}
                 className="text-lg px-8 py-4 shadow-2xl"
               >
                 Get Early Access
               </Button>
             </div>
 
-            {/* Email Signup */}
-            <Card className="max-w-md mx-auto animate-slide-up glass-enhanced shadow-2xl">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4 text-white drop-shadow-md">
-                  Join the Waitlist
-                </h3>
-                {submitted ? (
-                  <div className="text-center">
-                    <div className="text-green-400 mb-2 text-2xl drop-shadow-md">✓</div>
-                    <p className="text-green-400 drop-shadow-md">
-                      Thank you! You'll be notified when we launch.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleEmailSubmit} className="space-y-4">
-                    <Input
-                      type="email"
-                      placeholder="Enter your email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                    <Button
-                      type="submit"
-                      loading={isSubmitting}
-                      className="w-full shadow-lg"
-                      variant="glass"
-                    >
-                      Notify Me
-                    </Button>
-                  </form>
-                )}
-              </CardContent>
-            </Card>
+            {/* Email Signup - Only show when Get Early Access is clicked */}
+            {showWaitlist && (
+              <Card className="max-w-md mx-auto animate-slide-up glass-enhanced shadow-2xl">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold mb-4 text-white drop-shadow-md">
+                    Join the Waitlist
+                  </h3>
+                  {submitted ? (
+                    <div className="text-center">
+                      <div className="text-green-400 mb-2 text-2xl drop-shadow-md">✓</div>
+                      <p className="text-green-400 drop-shadow-md">
+                        Thank you! You'll be notified when we launch.
+                      </p>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleEmailSubmit} className="space-y-4">
+                      <Input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
+                      <Button
+                        type="submit"
+                        loading={isSubmitting}
+                        className="w-full shadow-lg"
+                        variant="glass"
+                      >
+                        Notify Me
+                      </Button>
+                    </form>
+                  )}
+                </CardContent>
+              </Card>
+            )}
           </div>
         </div>
       </section>
