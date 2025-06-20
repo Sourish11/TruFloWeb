@@ -228,22 +228,6 @@ export default function TruFloLandingPage() {
         </Card>
       </Modal>
 
-      {/* Stats Section */}
-      <section className="section-spacing-sm">
-        <div className="container mx-auto px-4">
-          <div className="content-grid content-grid-3 text-center">
-            {stats.map((stat, index) => (
-              <Card key={index} className="p-8 animate-fade-in glass-enhanced shadow-xl">
-                <div className="text-3xl font-bold gradient-text-white mb-2 drop-shadow-lg">
-                  {stat.number}
-                </div>
-                <p className="text-white/90 drop-shadow-md">{stat.label}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Problem Section */}
       <section id="about" className="section-spacing">
         <div className="container mx-auto px-4">
@@ -323,30 +307,16 @@ export default function TruFloLandingPage() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="section-spacing">
+      {/* Stats Section */}
+      <section className="section-spacing-sm">
         <div className="container mx-auto px-4">
-          <div className="visual-hierarchy mb-16">
-            <h2 className="page-title text-white mb-6 drop-shadow-2xl">
-              How TruFlo Works
-            </h2>
-            <p className="text-lg text-white/90 drop-shadow-lg">
-              We've reimagined productivity by putting your emotions at the center of the experience.
-            </p>
-          </div>
-
-          <div className="content-grid content-grid-3">
-            {features.map((feature, index) => (
-              <Card key={index} hover className="h-full glass-enhanced shadow-xl">
-                <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-4 animate-float drop-shadow-md">{feature.icon}</div>
-                  <h3 className="text-lg font-semibold text-white mb-3 drop-shadow-md">
-                    {feature.title}
-                  </h3>
-                  <p className="text-white/80 drop-shadow-sm">
-                    {feature.description}
-                  </p>
-                </CardContent>
+          <div className="content-grid content-grid-3 text-center">
+            {stats.map((stat, index) => (
+              <Card key={index} className="p-8 animate-fade-in glass-enhanced shadow-xl">
+                <div className="text-3xl font-bold gradient-text-white mb-2 drop-shadow-lg">
+                  {stat.number}
+                </div>
+                <p className="text-white/90 drop-shadow-md">{stat.label}</p>
               </Card>
             ))}
           </div>
@@ -413,6 +383,36 @@ export default function TruFloLandingPage() {
                       </p>
                     </div>
                   </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="section-spacing">
+        <div className="container mx-auto px-4">
+          <div className="visual-hierarchy mb-16">
+            <h2 className="page-title text-white mb-6 drop-shadow-2xl">
+              How TruFlo Works
+            </h2>
+            <p className="text-lg text-white/90 drop-shadow-lg">
+              We've reimagined productivity by putting your emotions at the center of the experience.
+            </p>
+          </div>
+
+          <div className="content-grid content-grid-3">
+            {features.map((feature, index) => (
+              <Card key={index} hover className="h-full glass-enhanced shadow-xl">
+                <CardContent className="p-6 text-center">
+                  <div className="text-4xl mb-4 animate-float drop-shadow-md">{feature.icon}</div>
+                  <h3 className="text-lg font-semibold text-white mb-3 drop-shadow-md">
+                    {feature.title}
+                  </h3>
+                  <p className="text-white/80 drop-shadow-sm">
+                    {feature.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
