@@ -473,10 +473,10 @@ export default function TruFloLandingPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section - No Box */}
       <section className="section-spacing">
         <div className="container mx-auto px-4 text-center">
-          <Card className="max-w-4xl mx-auto p-12 glass-enhanced shadow-2xl">
+          <div className="max-w-4xl mx-auto">
             <div className="visual-hierarchy">
               <h2 className="page-title text-white mb-6 drop-shadow-2xl">
                 Ready to Transform Your Productivity?
@@ -502,7 +502,7 @@ export default function TruFloLandingPage() {
                 </Button>
               </div>
             </div>
-          </Card>
+          </div>
         </div>
       </section>
     </div>
