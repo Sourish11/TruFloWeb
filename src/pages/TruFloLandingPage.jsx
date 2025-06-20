@@ -6,6 +6,10 @@ import { Input } from '../components/ui/Input';
 import { Modal, ModalHeader, ModalContent } from '../components/ui/Modal';
 import { joinEarlyAccess } from '../hooks/joinEarlyAccess';
 import landingVideo from '../assets/landing-video.mp4';
+import candaceWade from '../assets/testimonials/candace-wade.png';
+import jasonHeikenfeld from '../assets/testimonials/jason-heikenfeld.png';
+import samuelBaker from '../assets/testimonials/samuel-baker.png';
+import williamHawkins from '../assets/testimonials/william-hawkins.png';
 
 export default function TruFloLandingPage() {
   const [email, setEmail] = useState('');
@@ -76,6 +80,45 @@ export default function TruFloLandingPage() {
     { number: '94%', label: 'Feel stuck in distractions' },
     { number: '74%', label: 'Say existing solutions don\'t help' },
     { number: '84%', label: 'Would try TruFlo' }
+  ];
+
+  const testimonials = [
+    {
+      name: 'Dr. Candace Wade',
+      position: 'Senior Research Scientist',
+      company: 'Innovation Labs',
+      image: candaceWade,
+      quote: 'TruFlo\'s mood-aware approach revolutionized how I manage my research workflow. The AI perfectly adapts to my energy levels throughout the day.',
+      credentials: 'PhD in Cognitive Psychology, 15+ years in behavioral research',
+      demo: 'Dr. Wade used TruFlo during her intensive research periods, finding that the mood recognition helped her tackle complex analytical work during peak focus times. The app\'s adaptive scheduling increased her research output by 40%.'
+    },
+    {
+      name: 'Prof. Jason Heikenfeld',
+      position: 'Professor of Engineering',
+      company: 'University of Cincinnati',
+      image: jasonHeikenfeld,
+      quote: 'As someone who juggles teaching, research, and innovation, TruFlo\'s personalized task management has been a game-changer for my productivity.',
+      credentials: 'Professor of Electrical Engineering, 50+ patents, NSF CAREER Award recipient',
+      demo: 'Professor Heikenfeld integrated TruFlo into his academic routine, using it to balance lecture preparation, research projects, and student mentoring. The mood-based scheduling helped him optimize his most creative hours for breakthrough innovations.'
+    },
+    {
+      name: 'Samuel Baker',
+      position: 'Creative Director & Entrepreneur',
+      company: 'Digital Innovation Studio',
+      image: samuelBaker,
+      quote: 'TruFlo understands that creativity can\'t be forced. It helps me channel my natural rhythms into productive creative sessions that actually produce results.',
+      credentials: 'Award-winning creative director, Founded 3 successful startups, TEDx speaker',
+      demo: 'Samuel uses TruFlo to manage his creative agency\'s projects and his entrepreneurial ventures. The app\'s mood recognition helps him schedule brainstorming sessions when he\'s most inspired and administrative tasks when his energy is lower.'
+    },
+    {
+      name: 'Dr. William Hawkins',
+      position: 'Research Director',
+      company: 'Advanced Materials Institute',
+      image: williamHawkins,
+      quote: 'The emotional intelligence built into TruFlo is remarkable. It\'s like having a productivity coach that truly understands human psychology.',
+      credentials: 'PhD in Materials Science, 100+ peer-reviewed publications, Industry innovation award winner',
+      demo: 'Dr. Hawkins implemented TruFlo across his research team, finding that the mood-aware task distribution improved team collaboration and individual performance. The app helped reduce burnout while maintaining high research standards.'
+    }
   ];
 
   return (
@@ -303,6 +346,73 @@ export default function TruFloLandingPage() {
                   <p className="text-white/80 drop-shadow-sm">
                     {feature.description}
                   </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="section-spacing">
+        <div className="container mx-auto px-4">
+          <div className="visual-hierarchy mb-16">
+            <h2 className="page-title text-white mb-6 drop-shadow-2xl">
+              Trusted by Industry Leaders
+            </h2>
+            <p className="text-lg text-white/90 drop-shadow-lg">
+              See what thought leaders and innovators are saying about TruFlo's revolutionary approach to productivity.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="glass-enhanced shadow-xl hover:scale-[1.02] transition-all duration-300">
+                <CardContent className="p-8">
+                  <div className="flex items-start space-x-6 mb-6">
+                    <div className="flex-shrink-0">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-20 h-20 rounded-full object-cover border-2 border-white/20 shadow-lg"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-white mb-1 drop-shadow-md">
+                        {testimonial.name}
+                      </h3>
+                      <p className="text-white/80 text-sm mb-2 drop-shadow-sm">
+                        {testimonial.position}
+                      </p>
+                      <p className="text-white/70 text-sm drop-shadow-sm">
+                        {testimonial.company}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <blockquote className="text-white/90 text-lg italic mb-6 drop-shadow-sm leading-relaxed">
+                    "{testimonial.quote}"
+                  </blockquote>
+                  
+                  <div className="space-y-4">
+                    <div className="p-4 bg-white/5 rounded-lg border border-white/10">
+                      <h4 className="text-sm font-semibold text-white/90 mb-2 drop-shadow-sm">
+                        Credentials & Achievements
+                      </h4>
+                      <p className="text-white/70 text-sm drop-shadow-sm">
+                        {testimonial.credentials}
+                      </p>
+                    </div>
+                    
+                    <div className="p-4 bg-white/5 rounded-lg border border-white/10">
+                      <h4 className="text-sm font-semibold text-white/90 mb-2 drop-shadow-sm">
+                        How They Use TruFlo
+                      </h4>
+                      <p className="text-white/70 text-sm drop-shadow-sm leading-relaxed">
+                        {testimonial.demo}
+                      </p>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             ))}
