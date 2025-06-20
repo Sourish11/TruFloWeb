@@ -1,6 +1,6 @@
 export function Card({ children, className = '', hover = false, ...props }) {
   const baseClasses = 'glass-card rounded-xl transition-all duration-300';
-  const hoverClasses = hover ? 'hover:scale-[1.02] cursor-pointer' : '';
+  const hoverClasses = hover ? 'hover:scale-[1.02] cursor-pointer hover:shadow-2xl' : '';
   
   return (
     <div 
