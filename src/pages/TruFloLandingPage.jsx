@@ -67,19 +67,20 @@ export default function TruFloLandingPage() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-20">
+      <section className="relative overflow-hidden pt-20 pb-32">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-in">
               Unlock Your{' '}
-              <span className="gradient-text-white animate-glow">
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Tru
               </span>{' '}
               Potential
             </h1>
-            <p className="text-xl md:text-2xl text-white/80 mb-8 animate-slide-up">
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 animate-slide-up">
               The first productivity app that understands your mood to help you break free from distractions and build lasting habits.
             </p>
             
@@ -92,7 +93,7 @@ export default function TruFloLandingPage() {
                 Join Beta Community
               </Button>
               <Button
-                variant="glass"
+                variant="outline"
                 size="lg"
                 onClick={() => navigate('/signup')}
                 className="text-lg px-8 py-4"
@@ -102,15 +103,15 @@ export default function TruFloLandingPage() {
             </div>
 
             {/* Email Signup */}
-            <Card className="max-w-md mx-auto animate-slide-up">
+            <Card className="max-w-md mx-auto glass-effect animate-slide-up">
               <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4 text-white">
+                <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
                   Join the Waitlist
                 </h3>
                 {submitted ? (
                   <div className="text-center">
-                    <div className="text-green-400 mb-2 text-2xl">✓</div>
-                    <p className="text-green-400">
+                    <div className="text-green-600 dark:text-green-400 mb-2">✓</div>
+                    <p className="text-green-600 dark:text-green-400">
                       Thank you! You'll be notified when we launch.
                     </p>
                   </div>
@@ -127,7 +128,6 @@ export default function TruFloLandingPage() {
                       type="submit"
                       loading={isSubmitting}
                       className="w-full"
-                      variant="glass"
                     >
                       Notify Me
                     </Button>
@@ -140,108 +140,100 @@ export default function TruFloLandingPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16">
+      <section className="py-16 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {stats.map((stat, index) => (
-              <Card key={index} className="p-8 animate-fade-in">
-                <div className="text-4xl md:text-5xl font-bold gradient-text-white mb-2">
+              <div key={index} className="animate-fade-in">
+                <div className="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                   {stat.number}
                 </div>
-                <p className="text-white/80">{stat.label}</p>
-              </Card>
+                <p className="text-gray-600 dark:text-gray-300">{stat.label}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Problem Section */}
-      <section id="about" className="py-20">
+      <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               You're not lazy. You're overwhelmed.
             </h2>
-            <p className="text-xl text-white/80">
+            <p className="text-xl text-gray-600 dark:text-gray-300">
               Traditional productivity apps ignore the most important factor: how you feel.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <Card className="p-6 hover">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-lg flex items-center justify-center border border-red-400/30">
-                    <span className="text-2xl">📉</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
-                      Task Abandonment
-                    </h3>
-                    <p className="text-white/70">
-                      You start with good intentions but lose motivation halfway through.
-                    </p>
-                  </div>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">📉</span>
                 </div>
-              </Card>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    Task Abandonment
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    You start with good intentions but lose motivation halfway through.
+                  </p>
+                </div>
+              </div>
 
-              <Card className="p-6 hover">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-lg flex items-center justify-center border border-orange-400/30">
-                    <span className="text-2xl">😞</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
-                      Guilt from Time-Wasting
-                    </h3>
-                    <p className="text-white/70">
-                      You know you're procrastinating but can't seem to stop.
-                    </p>
-                  </div>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">😞</span>
                 </div>
-              </Card>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    Guilt from Time-Wasting
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    You know you're procrastinating but can't seem to stop.
+                  </p>
+                </div>
+              </div>
 
-              <Card className="p-6 hover">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 rounded-lg flex items-center justify-center border border-yellow-400/30">
-                    <span className="text-2xl">🔄</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
-                      Confusion Around Priorities
-                    </h3>
-                    <p className="text-white/70">
-                      Everything feels urgent, but nothing feels important.
-                    </p>
-                  </div>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">🔄</span>
                 </div>
-              </Card>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    Confusion Around Priorities
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Everything feels urgent, but nothing feels important.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="relative">
-              <Card className="p-4">
-                <video
-                  src={landingVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="rounded-lg w-full"
-                />
-              </Card>
+              <video
+                src={landingVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="rounded-2xl shadow-2xl w-full"
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20">
+      <section id="features" className="py-20 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               How TruFlo Works
             </h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               We've reimagined productivity by putting your emotions at the center of the experience.
             </p>
           </div>
@@ -250,11 +242,11 @@ export default function TruFloLandingPage() {
             {features.map((feature, index) => (
               <Card key={index} hover className="h-full">
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-4 animate-float">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <div className="text-4xl mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-white/70">
+                  <p className="text-gray-600 dark:text-gray-300">
                     {feature.description}
                   </p>
                 </CardContent>
@@ -265,10 +257,10 @@ export default function TruFloLandingPage() {
       </section>
 
       {/* Comparison Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               What Makes Us Different
             </h2>
           </div>
@@ -276,39 +268,39 @@ export default function TruFloLandingPage() {
           <Card className="max-w-4xl mx-auto overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-white/5 border-b border-white/10">
+                <thead className="bg-gray-50 dark:bg-gray-700">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-white">
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 dark:text-white">
                       Feature
                     </th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold gradient-text-white">
+                    <th className="px-6 py-4 text-center text-sm font-semibold text-blue-600 dark:text-blue-400">
                       TruFlo
                     </th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-white/60">
+                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-500 dark:text-gray-400">
                       Others
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/10">
+                <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
                   <tr>
-                    <td className="px-6 py-4 text-sm text-white">Mood Recognition</td>
-                    <td className="px-6 py-4 text-center text-sm text-green-400">✅ Voice-based emotion check-ins</td>
-                    <td className="px-6 py-4 text-center text-sm text-red-400">❌ Ignored</td>
+                    <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">Mood Recognition</td>
+                    <td className="px-6 py-4 text-center text-sm text-green-600 dark:text-green-400">✅ Voice-based emotion check-ins</td>
+                    <td className="px-6 py-4 text-center text-sm text-red-500 dark:text-red-400">❌ Ignored</td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-4 text-sm text-white">Personalized Challenges</td>
-                    <td className="px-6 py-4 text-center text-sm text-green-400">✅ Influencer-led + adaptive</td>
-                    <td className="px-6 py-4 text-center text-sm text-yellow-400">⚠ Static or solo tasks</td>
+                    <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">Personalized Challenges</td>
+                    <td className="px-6 py-4 text-center text-sm text-green-600 dark:text-green-400">✅ Influencer-led + adaptive</td>
+                    <td className="px-6 py-4 text-center text-sm text-yellow-500 dark:text-yellow-400">⚠ Static or solo tasks</td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-4 text-sm text-white">AI-Powered Routines</td>
-                    <td className="px-6 py-4 text-center text-sm text-green-400">✅ Learns your behavior daily</td>
-                    <td className="px-6 py-4 text-center text-sm text-yellow-400">⚠ Limited personalization</td>
+                    <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">AI-Powered Routines</td>
+                    <td className="px-6 py-4 text-center text-sm text-green-600 dark:text-green-400">✅ Learns your behavior daily</td>
+                    <td className="px-6 py-4 text-center text-sm text-yellow-500 dark:text-yellow-400">⚠ Limited personalization</td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-4 text-sm text-white">Community Accountability</td>
-                    <td className="px-6 py-4 text-center text-sm text-green-400">✅ Leaderboards, XP, streaks</td>
-                    <td className="px-6 py-4 text-center text-sm text-yellow-400">⚠ Mostly solo-based</td>
+                    <td className="px-6 py-4 text-sm text-gray-900 dark:text-white">Community Accountability</td>
+                    <td className="px-6 py-4 text-center text-sm text-green-600 dark:text-green-400">✅ Leaderboards, XP, streaks</td>
+                    <td className="px-6 py-4 text-center text-sm text-yellow-500 dark:text-yellow-400">⚠ Mostly solo-based</td>
                   </tr>
                 </tbody>
               </table>
@@ -318,33 +310,32 @@ export default function TruFloLandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="container mx-auto px-4 text-center">
-          <Card className="max-w-4xl mx-auto p-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Transform Your Productivity?
-            </h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Join thousands of others who are already building better habits with TruFlo.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                onClick={() => navigate('/signup')}
-                className="text-lg px-8 py-4"
-              >
-                Start Your Journey
-              </Button>
-              <Button
-                size="lg"
-                variant="glass"
-                onClick={() => window.open('https://discord.gg/eZHfGJTRNh', '_blank', 'noopener,noreferrer')}
-                className="text-lg px-8 py-4"
-              >
-                Join Community
-              </Button>
-            </div>
-          </Card>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Transform Your Productivity?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Join thousands of others who are already building better habits with TruFlo.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              variant="secondary"
+              onClick={() => navigate('/signup')}
+              className="text-lg px-8 py-4"
+            >
+              Start Your Journey
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => window.open('https://discord.gg/eZHfGJTRNh', '_blank', 'noopener,noreferrer')}
+              className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-blue-600"
+            >
+              Join Community
+            </Button>
+          </div>
         </div>
       </section>
     </div>

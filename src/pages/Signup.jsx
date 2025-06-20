@@ -40,13 +40,13 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <Card className="w-full max-w-md animate-fade-in">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
+      <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <h1 className="text-2xl font-bold text-white">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
             Create Account
           </h1>
-          <p className="text-white/70">
+          <p className="text-gray-600 dark:text-gray-300">
             Join TruFlo and start your productivity journey
           </p>
         </CardHeader>
@@ -82,11 +82,11 @@ export default function Signup() {
             />
             
             {(localError || error) && (
-              <Card className="p-3 bg-red-500/20 border-red-400/30">
-                <p className="text-red-300 text-sm">
+              <div className="p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg">
+                <p className="text-red-600 dark:text-red-400 text-sm">
                   {localError || error}
                 </p>
-              </Card>
+              </div>
             )}
             
             <Button
@@ -100,11 +100,11 @@ export default function Signup() {
           </form>
           
           <div className="mt-6 text-center">
-            <p className="text-white/70">
+            <p className="text-gray-600 dark:text-gray-300">
               Already have an account?{' '}
               <Link
                 to="/login"
-                className="text-white hover:text-white/80 font-medium transition-colors"
+                className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium"
               >
                 Sign in
               </Link>

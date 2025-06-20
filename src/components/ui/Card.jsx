@@ -1,6 +1,6 @@
 export function Card({ children, className = '', hover = false, ...props }) {
-  const baseClasses = 'glass-card rounded-xl transition-all duration-300';
-  const hoverClasses = hover ? 'hover:scale-[1.02] cursor-pointer' : '';
+  const baseClasses = 'bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 transition-all duration-200';
+  const hoverClasses = hover ? 'hover:shadow-lg hover:-translate-y-1' : '';
   
   return (
     <div 
@@ -14,7 +14,7 @@ export function Card({ children, className = '', hover = false, ...props }) {
 
 export function CardHeader({ children, className = '' }) {
   return (
-    <div className={`px-6 py-4 border-b border-white/10 ${className}`}>
+    <div className={`px-6 py-4 border-b border-gray-200 dark:border-gray-700 ${className}`}>
       {children}
     </div>
   );
@@ -30,7 +30,7 @@ export function CardContent({ children, className = '' }) {
 
 export function CardFooter({ children, className = '' }) {
   return (
-    <div className={`px-6 py-4 border-t border-white/10 ${className}`}>
+    <div className={`px-6 py-4 border-t border-gray-200 dark:border-gray-700 ${className}`}>
       {children}
     </div>
   );
