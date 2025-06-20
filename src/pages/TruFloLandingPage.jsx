@@ -313,7 +313,7 @@ export default function TruFloLandingPage() {
           <div className="content-grid content-grid-3 text-center">
             {stats.map((stat, index) => (
               <Card key={index} className="p-8 animate-fade-in glass-enhanced shadow-xl">
-                <div className="text-3xl font-bold gradient-text-white mb-2 drop-shadow-lg">
+                <div className="stats-number text-3xl font-bold gradient-text-white mb-2 drop-shadow-lg">
                   {stat.number}
                 </div>
                 <p className="text-white/90 drop-shadow-md">{stat.label}</p>
@@ -351,10 +351,10 @@ export default function TruFloLandingPage() {
                       <h3 className="text-lg font-semibold text-white mb-1 drop-shadow-md">
                         {testimonial.name}
                       </h3>
-                      <p className="text-white/80 text-sm mb-2 drop-shadow-sm">
+                      <p className="ui-text text-white/80 text-sm mb-2 drop-shadow-sm">
                         {testimonial.position}
                       </p>
-                      <p className="text-white/70 text-sm drop-shadow-sm">
+                      <p className="ui-text text-white/70 text-sm drop-shadow-sm">
                         {testimonial.company}
                       </p>
                     </div>
@@ -366,7 +366,7 @@ export default function TruFloLandingPage() {
                   
                   <div className="space-y-4">
                     <div className="p-4 bg-white/5 rounded-lg border border-white/10">
-                      <h4 className="text-sm font-semibold text-white/90 mb-2 drop-shadow-sm">
+                      <h4 className="ui-text text-sm font-semibold text-white/90 mb-2 drop-shadow-sm">
                         Credentials & Achievements
                       </h4>
                       <p className="text-white/70 text-sm drop-shadow-sm">
@@ -375,7 +375,7 @@ export default function TruFloLandingPage() {
                     </div>
                     
                     <div className="p-4 bg-white/5 rounded-lg border border-white/10">
-                      <h4 className="text-sm font-semibold text-white/90 mb-2 drop-shadow-sm">
+                      <h4 className="ui-text text-sm font-semibold text-white/90 mb-2 drop-shadow-sm">
                         How They Use TruFlo
                       </h4>
                       <p className="text-white/70 text-sm drop-shadow-sm leading-relaxed">
@@ -437,10 +437,10 @@ export default function TruFloLandingPage() {
                     <th className="px-6 py-4 text-left text-sm font-semibold text-white drop-shadow-md">
                       Feature
                     </th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold gradient-text-white drop-shadow-md">
+                    <th className="ui-text px-6 py-4 text-center text-sm font-semibold gradient-text-white drop-shadow-md">
                       TruFlo
                     </th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-white/60 drop-shadow-md">
+                    <th className="ui-text px-6 py-4 text-center text-sm font-semibold text-white/60 drop-shadow-md">
                       Others
                     </th>
                   </tr>
@@ -448,23 +448,23 @@ export default function TruFloLandingPage() {
                 <tbody className="divide-y divide-white/10">
                   <tr>
                     <td className="px-6 py-4 text-sm text-white drop-shadow-sm">Mood Recognition</td>
-                    <td className="px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Voice-based emotion check-ins</td>
-                    <td className="px-6 py-4 text-center text-sm text-red-400 drop-shadow-sm">❌ Ignored</td>
+                    <td className="ui-text px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Voice-based emotion check-ins</td>
+                    <td className="ui-text px-6 py-4 text-center text-sm text-red-400 drop-shadow-sm">❌ Ignored</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-4 text-sm text-white drop-shadow-sm">Personalized Challenges</td>
-                    <td className="px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Influencer-led + adaptive</td>
-                    <td className="px-6 py-4 text-center text-sm text-yellow-400 drop-shadow-sm">⚠ Static or solo tasks</td>
+                    <td className="ui-text px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Influencer-led + adaptive</td>
+                    <td className="ui-text px-6 py-4 text-center text-sm text-yellow-400 drop-shadow-sm">⚠ Static or solo tasks</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-4 text-sm text-white drop-shadow-sm">AI-Powered Routines</td>
-                    <td className="px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Learns your behavior daily</td>
-                    <td className="px-6 py-4 text-center text-sm text-yellow-400 drop-shadow-sm">⚠ Limited personalization</td>
+                    <td className="ui-text px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Learns your behavior daily</td>
+                    <td className="ui-text px-6 py-4 text-center text-sm text-yellow-400 drop-shadow-sm">⚠ Limited personalization</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-4 text-sm text-white drop-shadow-sm">Community Accountability</td>
-                    <td className="px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Leaderboards, XP, streaks</td>
-                    <td className="px-6 py-4 text-center text-sm text-yellow-400 drop-shadow-sm">⚠ Mostly solo-based</td>
+                    <td className="ui-text px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Leaderboards, XP, streaks</td>
+                    <td className="ui-text px-6 py-4 text-center text-sm text-yellow-400 drop-shadow-sm">⚠ Mostly solo-based</td>
                   </tr>
                 </tbody>
               </table>
