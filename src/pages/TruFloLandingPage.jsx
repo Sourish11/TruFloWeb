@@ -188,7 +188,7 @@ export default function TruFloLandingPage() {
                 onClick={() => window.open('https://discord.gg/eZHfGJTRNh', '_blank', 'noopener,noreferrer')}
                 className="text-lg px-8 py-4 shadow-2xl"
               >
-                Join Beta Community
+                Join Discord
               </Button>
               <Button
                 variant="glass"
