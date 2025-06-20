@@ -60,28 +60,33 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
+  filter: brightness(0.7) blur(1px);
 }
 
-/* Background overlay for better text readability */
-body::before {
+/* Background overlay - removed to maintain original opacity */
+body::after {
   content: '';
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(88, 28, 135, 0.3) 100%);
+  background: transparent;
   z-index: -1;
   pointer-events: none;
+}
+
+/* Content wrapper to remove blur from content */
+#root {
+  filter: none;
+  position: relative;
+  z-index: 1;
 }
 
 /* Dark mode styles */
 .dark body {
   color: #f9fafb;
-}
-
-.dark body::before {
-  background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(88, 28, 135, 0.4) 100%);
+  filter: brightness(0.6) blur(1px);
 }
 
 /* Typography */
