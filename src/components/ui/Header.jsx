@@ -25,17 +25,17 @@ export default function Header() {
   ];
 
   return (
-    <header className="nav-section sticky top-0 z-50 w-full">
-      <div className="container mx-auto">
-        <div className="flex items-center justify-between h-16 px-4">
+    <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-6xl">
+      <div className="glass-nav rounded-full px-6 py-3 animate-fade-in">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 hover:opacity-90 transition-opacity">
+          <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <img
               src={trufloLogo}
               alt="TruFlo Logo"
-              className="h-10 w-auto"
+              className="h-8 w-auto"
             />
-            <span className="nav-logo">
+            <span className="text-xl font-bold text-white">
               TruFlo
             </span>
           </Link>
@@ -46,23 +46,23 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="nav-text relative group"
+                className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-sm relative group"
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-current to-transparent transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </nav>
 
           {/* Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-3">
             {user ? (
-              <div className="flex items-center space-x-4">
-                <span className="nav-text text-sm font-medium">
+              <div className="flex items-center space-x-3">
+                <span className="text-sm text-white/80 font-medium">
                   Welcome, {user.email.split('@')[0]}
                 </span>
                 <Button
-                  variant="nav"
+                  variant="glass"
                   size="sm"
                   onClick={() => navigate('/app')}
                 >
@@ -72,14 +72,14 @@ export default function Header() {
             ) : (
               <>
                 <Button
-                  variant="ghost-nav"
+                  variant="ghost"
                   size="sm"
                   onClick={() => navigate('/login')}
                 >
                   Log In
                 </Button>
                 <Button
-                  variant="nav"
+                  variant="glass"
                   size="sm"
                   onClick={() => navigate('/signup')}
                 >
@@ -91,11 +91,11 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg nav-text hover:bg-white/10 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -111,22 +111,22 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-white/20 animate-slide-up">
-            <nav className="flex flex-col space-y-1 py-4 px-4">
+          <div className="md:hidden mt-4 pt-4 border-t border-white/20">
+            <nav className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="nav-text py-3 px-2 rounded-lg hover:bg-white/10 transition-colors"
+                  className="text-white/90 hover:text-white transition-colors duration-300 py-2 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
-              <div className="pt-4 border-t border-white/20 mt-4">
+              <div className="pt-3 border-t border-white/20">
                 {user ? (
                   <Button
-                    variant="nav"
+                    variant="glass"
                     size="sm"
                     onClick={() => {
                       navigate('/app');
@@ -139,7 +139,7 @@ export default function Header() {
                 ) : (
                   <div className="space-y-2">
                     <Button
-                      variant="ghost-nav"
+                      variant="ghost"
                       size="sm"
                       onClick={() => {
                         navigate('/login');
@@ -150,7 +150,7 @@ export default function Header() {
                       Log In
                     </Button>
                     <Button
-                      variant="nav"
+                      variant="glass"
                       size="sm"
                       onClick={() => {
                         navigate('/signup');
