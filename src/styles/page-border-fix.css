@@ -1,0 +1,21 @@
+/* ==== TruFlo Patch: Remove Only the Page Border Glow ==== */
+
+/* Remove outer glow from the full page */
+html, body, #root {
+  box-shadow: none !important;
+  filter: none !important;
+  outline: none !important;
+  border: none !important;
+  overflow-x: hidden;
+}
+
+/* Also target any potential layout containers that might be leaking glow */
+main, .layout, .page-wrapper, .app-wrapper {
+  box-shadow: none !important;
+}
+
+/* Ensure no edge glow from scrollbars or body background */
+body::before,
+body::after {
+  box-shadow: none !important;
+}
