@@ -48,43 +48,43 @@ export default function AppPage() {
 
     if (!user) {
         return (
-            <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+            <div className="min-h-screen flex items-center justify-center">
                 <div className="spinner" />
             </div>
         );
     }
 
     return (
-        <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="flex h-screen">
             {/* Mobile Sidebar Overlay */}
             {sidebarOpen && (
                 <div 
-                    className="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden"
+                    className="fixed inset-0 z-40 bg-black/50 lg:hidden"
                     onClick={() => setSidebarOpen(false)}
                 />
             )}
 
             {/* Sidebar */}
             <div className={`
-                fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0
+                fixed inset-y-0 left-0 z-50 w-64 glass-nav transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0
                 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
             `}>
                 <div className="flex flex-col h-full">
                     {/* Header */}
-                    <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex items-center justify-between p-6 border-b border-white/10">
                         <div>
-                            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                            <h2 className="text-lg font-semibold text-white">
                                 {getGreeting()}
                             </h2>
-                            <p className="text-sm text-gray-600 dark:text-gray-300">
+                            <p className="text-sm text-white/70">
                                 {username || user.email}
                             </p>
                         </div>
                         <button
-                            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                            className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
                             onClick={() => setSidebarOpen(false)}
                         >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
@@ -97,10 +97,10 @@ export default function AppPage() {
                                 key={section.key}
                                 to={`/app/${section.key}`}
                                 className={({ isActive }) =>
-                                    `flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors duration-200 ${
+                                    `flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
                                         isActive 
-                                            ? "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium" 
-                                            : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                            ? "bg-white/20 text-white font-medium shadow-lg" 
+                                            : "text-white/80 hover:text-white hover:bg-white/10"
                                     }`
                                 }
                                 onClick={() => setSidebarOpen(false)}
@@ -112,9 +112,9 @@ export default function AppPage() {
                     </nav>
 
                     {/* Logout Button */}
-                    <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+                    <div className="p-4 border-t border-white/10">
                         <Button
-                            variant="outline"
+                            variant="glass"
                             onClick={handleLogout}
                             className="w-full"
                         >
@@ -127,25 +127,25 @@ export default function AppPage() {
             {/* Main Content */}
             <div className="flex-1 flex flex-col overflow-hidden">
                 {/* Mobile Header */}
-                <div className="lg:hidden bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4">
+                <div className="lg:hidden glass-nav p-4">
                     <div className="flex items-center justify-between">
                         <button
-                            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                            className="p-2 rounded-lg hover:bg-white/10 transition-colors"
                             onClick={() => setSidebarOpen(true)}
                         >
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </button>
-                        <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        <h1 className="text-lg font-semibold text-white">
                             TruFlo
                         </h1>
-                        <div className="w-10" /> {/* Spacer */}
+                        <div className="w-10" />
                     </div>
                 </div>
 
                 {/* Page Content */}
-                <main className="flex-1 overflow-y-auto bg-gray-50 dark:bg-gray-900 p-6">
+                <main className="flex-1 overflow-y-auto p-6">
                     <div className="max-w-7xl mx-auto">
                         <Outlet />
                     </div>

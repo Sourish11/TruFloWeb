@@ -9,22 +9,25 @@ const Button = forwardRef(({
   disabled = false,
   ...props 
 }, ref) => {
-  const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden';
   
   const variants = {
-    primary: 'bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500 shadow-md hover:shadow-lg',
-    secondary: 'bg-gray-100 hover:bg-gray-200 text-gray-900 focus:ring-gray-500 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100',
-    outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-500 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-900/20',
-    ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500 dark:text-gray-300 dark:hover:bg-gray-800',
-    danger: 'bg-red-600 hover:bg-red-700 text-white focus:ring-red-500 shadow-md hover:shadow-lg',
-    success: 'bg-green-600 hover:bg-green-700 text-white focus:ring-green-500 shadow-md hover:shadow-lg'
+    primary: 'btn-primary focus:ring-white/50',
+    secondary: 'btn-secondary focus:ring-white/50',
+    cta: 'btn-cta focus:ring-white/50',
+    nav: 'btn-nav focus:ring-white/50',
+    'ghost-nav': 'nav-text hover:bg-white/10 focus:ring-white/50',
+    outline: 'border-2 border-current text-current hover:bg-current hover:text-white transition-all duration-300',
+    ghost: 'text-current hover:bg-current/10 transition-all duration-300',
+    danger: 'bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300',
+    success: 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300'
   };
 
   const sizes = {
-    sm: 'px-3 py-1.5 text-sm rounded-md',
-    md: 'px-4 py-2 text-base rounded-lg',
-    lg: 'px-6 py-3 text-lg rounded-lg',
-    xl: 'px-8 py-4 text-xl rounded-xl'
+    sm: 'px-4 py-2 text-sm rounded-lg',
+    md: 'px-6 py-2.5 text-base rounded-lg',
+    lg: 'px-8 py-3 text-lg rounded-xl',
+    xl: 'px-10 py-4 text-xl rounded-xl'
   };
 
   const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`;
@@ -39,7 +42,7 @@ const Button = forwardRef(({
       {loading && (
         <div className="spinner mr-2" />
       )}
-      {children}
+      <span className="relative z-10">{children}</span>
     </button>
   );
 });
