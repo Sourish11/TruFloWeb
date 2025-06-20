@@ -40,15 +40,12 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4">
       <Card className="w-full max-w-md animate-fade-in">
         <CardHeader className="text-center">
-          <h1 className="text-2xl font-bold text-white">
+          <h1 className="text-3xl font-bold text-white mb-4">
             Create Account
           </h1>
-          <p className="text-white/70">
-            Join TruFlo and start your productivity journey
-          </p>
         </CardHeader>
         
         <CardContent>
@@ -112,6 +109,11 @@ export default function Signup() {
           </div>
         </CardContent>
       </Card>
+      
+      {/* Subtitle below the card */}
+      <p className="text-white/80 text-center mt-6 max-w-md">
+        Join TruFlo and start your productivity journey
+      </p>
     </div>
   );
 }
