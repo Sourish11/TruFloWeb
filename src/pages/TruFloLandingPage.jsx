@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
-import { Card, CardContent, CardHeader } from '../components/ui/Card';
+import { Card, CardContent } from '../components/ui/Card';
 import { Input } from '../components/ui/Input';
+import { Modal, ModalHeader, ModalContent } from '../components/ui/Modal';
 import { joinEarlyAccess } from '../hooks/joinEarlyAccess';
 import landingVideo from '../assets/landing-video.mp4';
 
@@ -10,7 +11,7 @@ export default function TruFloLandingPage() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [showWaitlist, setShowWaitlist] = useState(false);
+  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   const { notify } = joinEarlyAccess();
   const navigate = useNavigate();
 
@@ -29,7 +30,13 @@ export default function TruFloLandingPage() {
   };
 
   const handleGetEarlyAccess = () => {
-    setShowWaitlist(true);
+    setShowWaitlistModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowWaitlistModal(false);
+    setSubmitted(false);
+    setEmail('');
   };
 
   const features = [
@@ -105,46 +112,78 @@ export default function TruFloLandingPage() {
                 Get Early Access
               </Button>
             </div>
-
-            {/* Email Signup - Only show when Get Early Access is clicked */}
-            {showWaitlist && (
-              <Card className="max-w-md mx-auto animate-slide-up glass-enhanced shadow-2xl">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold mb-4 text-white drop-shadow-md">
-                    Join the Waitlist
-                  </h3>
-                  {submitted ? (
-                    <div className="text-center">
-                      <div className="text-green-400 mb-2 text-2xl drop-shadow-md">✓</div>
-                      <p className="text-green-400 drop-shadow-md">
-                        Thank you! You'll be notified when we launch.
-                      </p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleEmailSubmit} className="space-y-4">
-                      <Input
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                      />
-                      <Button
-                        type="submit"
-                        loading={isSubmitting}
-                        className="w-full shadow-lg"
-                        variant="glass"
-                      >
-                        Notify Me
-                      </Button>
-                    </form>
-                  )}
-                </CardContent>
-              </Card>
-            )}
           </div>
         </div>
       </section>
+
+      {/* Waitlist Modal */}
+      <Modal isOpen={showWaitlistModal} onClose={handleCloseModal}>
+        <Card className="glass-enhanced shadow-2xl border-white/30">
+          <ModalHeader onClose={handleCloseModal}>
+            <h3 className="text-xl font-semibold text-white drop-shadow-md">
+              Join the Waitlist
+            </h3>
+          </ModalHeader>
+          
+          <ModalContent>
+            {submitted ? (
+              <div className="text-center py-4">
+                <div className="text-green-400 mb-4 text-4xl drop-shadow-md">✓</div>
+                <h4 className="text-lg font-semibold text-white mb-2">You're on the list!</h4>
+                <p className="text-white/80 mb-6">
+                  Thank you for joining our waitlist. You'll be among the first to know when TruFlo launches.
+                </p>
+                <Button
+                  onClick={handleCloseModal}
+                  variant="glass"
+                  className="w-full"
+                >
+                  Close
+                </Button>
+              </div>
+            ) : (
+              <div>
+                <p className="text-white/80 mb-6 text-center">
+                  Be the first to experience mood-aware productivity. We'll notify you as soon as TruFlo is available.
+                </p>
+                
+                <form onSubmit={handleEmailSubmit} className="space-y-4">
+                  <Input
+                    type="email"
+                    label="Email Address"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                  
+                  <div className="flex gap-3">
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      onClick={handleCloseModal}
+                      className="flex-1"
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      type="submit"
+                      loading={isSubmitting}
+                      className="flex-1"
+                    >
+                      Join Waitlist
+                    </Button>
+                  </div>
+                </form>
+                
+                <p className="text-xs text-white/60 text-center mt-4">
+                  We respect your privacy. No spam, just updates about TruFlo.
+                </p>
+              </div>
+            )}
+          </ModalContent>
+        </Card>
+      </Modal>
 
       {/* Stats Section */}
       <section className="section-spacing-sm">
