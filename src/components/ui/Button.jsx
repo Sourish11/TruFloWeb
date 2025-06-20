@@ -37,7 +37,7 @@ const Button = forwardRef(({
       disabled={disabled || loading}
       {...props}
     >
-      {/* Subtle glow effect on hover */}
+      {/* Subtle shine effect on hover - NO GLOW */}
       <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
       
       {loading && (
