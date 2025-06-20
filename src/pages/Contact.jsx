@@ -4,14 +4,16 @@ export default function Contact() {
       <div className="page-content">
         <div className="page-section">
           <div className="glass-enhanced rounded-2xl p-8 max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 text-center drop-shadow-2xl">
-              Get in Touch
-            </h1>
+            <div className="visual-hierarchy mb-8">
+              <h1 className="page-title text-white drop-shadow-2xl">
+                Get in Touch
+              </h1>
+            </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 grid-spacing-lg">
-              <div className="space-y-6">
+            <div className="content-grid content-grid-2">
+              <div className="content-wrapper">
                 <div className="glass-card p-6 rounded-xl">
-                  <h2 className="text-xl font-semibold text-white mb-4">Contact Information</h2>
+                  <h2 className="text-lg font-semibold text-white mb-4">Contact Information</h2>
                   <div className="space-y-4 text-white/80">
                     <div className="flex items-center space-x-3">
                       <span className="text-2xl">📧</span>
@@ -36,7 +38,7 @@ export default function Contact() {
                 </div>
 
                 <div className="glass-card p-6 rounded-xl">
-                  <h2 className="text-xl font-semibold text-white mb-4">Office Hours</h2>
+                  <h2 className="text-lg font-semibold text-white mb-4">Office Hours</h2>
                   <div className="space-y-2 text-white/80">
                     <div className="flex justify-between">
                       <span>Monday - Friday</span>
@@ -55,7 +57,7 @@ export default function Contact() {
               </div>
 
               <div className="glass-card p-6 rounded-xl">
-                <h2 className="text-xl font-semibold text-white mb-6">Send us a Message</h2>
+                <h2 className="text-lg font-semibold text-white mb-6">Send us a Message</h2>
                 <form className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-white/90 mb-2">Name</label>

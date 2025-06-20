@@ -71,15 +71,15 @@ export default function TruFloLandingPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20">
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in drop-shadow-2xl">
+          <div className="visual-hierarchy max-w-4xl mx-auto">
+            <h1 className="hero-heading text-white mb-6 animate-fade-in drop-shadow-2xl">
               Unlock Your{' '}
               <span className="gradient-text-white animate-glow">
                 Tru
               </span>{' '}
               Potential
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 animate-slide-up drop-shadow-lg">
+            <p className="text-xl text-white/90 mb-8 animate-slide-up drop-shadow-lg max-w-3xl">
               The first productivity app that understands your mood to help you break free from distractions and build lasting habits.
             </p>
             
@@ -140,12 +140,12 @@ export default function TruFloLandingPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16">
+      <section className="section-spacing-sm">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="content-grid content-grid-3 text-center">
             {stats.map((stat, index) => (
               <Card key={index} className="p-8 animate-fade-in glass-enhanced shadow-xl">
-                <div className="text-4xl md:text-5xl font-bold gradient-text-white mb-2 drop-shadow-lg">
+                <div className="text-3xl font-bold gradient-text-white mb-2 drop-shadow-lg">
                   {stat.number}
                 </div>
                 <p className="text-white/90 drop-shadow-md">{stat.label}</p>
@@ -156,26 +156,26 @@ export default function TruFloLandingPage() {
       </section>
 
       {/* Problem Section */}
-      <section id="about" className="py-20">
+      <section id="about" className="section-spacing">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-2xl">
+          <div className="visual-hierarchy mb-16">
+            <h2 className="page-title text-white mb-6 drop-shadow-2xl">
               You're not lazy. You're overwhelmed.
             </h2>
-            <p className="text-xl text-white/90 drop-shadow-lg">
+            <p className="text-lg text-white/90 drop-shadow-lg">
               Traditional productivity apps ignore the most important factor: how you feel.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="content-grid content-grid-2 items-center">
+            <div className="content-wrapper">
               <Card className="p-6 hover glass-enhanced shadow-xl">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-red-500/30 to-red-600/30 rounded-lg flex items-center justify-center border border-red-400/40 shadow-lg">
                     <span className="text-2xl drop-shadow-md">📉</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2 drop-shadow-md">
+                    <h3 className="text-lg font-semibold text-white mb-2 drop-shadow-md">
                       Task Abandonment
                     </h3>
                     <p className="text-white/80 drop-shadow-sm">
@@ -191,7 +191,7 @@ export default function TruFloLandingPage() {
                     <span className="text-2xl drop-shadow-md">😞</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2 drop-shadow-md">
+                    <h3 className="text-lg font-semibold text-white mb-2 drop-shadow-md">
                       Guilt from Time-Wasting
                     </h3>
                     <p className="text-white/80 drop-shadow-sm">
@@ -207,7 +207,7 @@ export default function TruFloLandingPage() {
                     <span className="text-2xl drop-shadow-md">🔄</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2 drop-shadow-md">
+                    <h3 className="text-lg font-semibold text-white mb-2 drop-shadow-md">
                       Confusion Around Priorities
                     </h3>
                     <p className="text-white/80 drop-shadow-sm">
@@ -235,23 +235,23 @@ export default function TruFloLandingPage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20">
+      <section id="features" className="section-spacing">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-2xl">
+          <div className="visual-hierarchy mb-16">
+            <h2 className="page-title text-white mb-6 drop-shadow-2xl">
               How TruFlo Works
             </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-lg">
+            <p className="text-lg text-white/90 drop-shadow-lg">
               We've reimagined productivity by putting your emotions at the center of the experience.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="content-grid content-grid-3">
             {features.map((feature, index) => (
               <Card key={index} hover className="h-full glass-enhanced shadow-xl">
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-4 animate-float drop-shadow-md">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold text-white mb-3 drop-shadow-md">
+                  <h3 className="text-lg font-semibold text-white mb-3 drop-shadow-md">
                     {feature.title}
                   </h3>
                   <p className="text-white/80 drop-shadow-sm">
@@ -265,10 +265,10 @@ export default function TruFloLandingPage() {
       </section>
 
       {/* Comparison Section */}
-      <section className="py-20">
+      <section className="section-spacing">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-2xl">
+          <div className="visual-hierarchy mb-16">
+            <h2 className="page-title text-white mb-6 drop-shadow-2xl">
               What Makes Us Different
             </h2>
           </div>
@@ -318,31 +318,33 @@ export default function TruFloLandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="section-spacing">
         <div className="container mx-auto px-4 text-center">
           <Card className="max-w-4xl mx-auto p-12 glass-enhanced shadow-2xl">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-2xl">
-              Ready to Transform Your Productivity?
-            </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-lg">
-              Join thousands of others who are already building better habits with TruFlo.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                onClick={() => navigate('/signup')}
-                className="text-lg px-8 py-4 shadow-2xl"
-              >
-                Start Your Journey
-              </Button>
-              <Button
-                size="lg"
-                variant="glass"
-                onClick={() => window.open('https://discord.gg/eZHfGJTRNh', '_blank', 'noopener,noreferrer')}
-                className="text-lg px-8 py-4 shadow-2xl"
-              >
-                Join Community
-              </Button>
+            <div className="visual-hierarchy">
+              <h2 className="page-title text-white mb-6 drop-shadow-2xl">
+                Ready to Transform Your Productivity?
+              </h2>
+              <p className="text-lg text-white/90 mb-8 drop-shadow-lg">
+                Join thousands of others who are already building better habits with TruFlo.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="lg"
+                  onClick={() => navigate('/signup')}
+                  className="text-lg px-8 py-4 shadow-2xl"
+                >
+                  Start Your Journey
+                </Button>
+                <Button
+                  size="lg"
+                  variant="glass"
+                  onClick={() => window.open('https://discord.gg/eZHfGJTRNh', '_blank', 'noopener,noreferrer')}
+                  className="text-lg px-8 py-4 shadow-2xl"
+                >
+                  Join Community
+                </Button>
+              </div>
             </div>
           </Card>
         </div>

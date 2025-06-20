@@ -27,17 +27,19 @@ export default function Discover() {
       <div className="page-content">
         <div className="page-section">
           <div className="glass-enhanced rounded-2xl p-8 text-center content-spacing-lg">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 drop-shadow-2xl">
-              Discover TruFlo
-            </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Experience the future of productivity with mood-aware technology that adapts to your unique patterns and emotional state.
-            </p>
+            <div className="visual-hierarchy">
+              <h1 className="page-title text-white mb-8 drop-shadow-2xl">
+                Discover TruFlo
+              </h1>
+              <p className="text-lg text-white/90 leading-relaxed">
+                Experience the future of productivity with mood-aware technology that adapts to your unique patterns and emotional state.
+              </p>
+            </div>
           </div>
         </div>
 
         <div className="page-section">
-          <div className="grid grid-cols-1 md:grid-cols-2 grid-spacing-lg">
+          <div className="content-grid content-grid-2">
             {features.map((feature, index) => (
               <div key={index} className="glass-card p-8 rounded-xl hover">
                 <div className="flex items-start space-x-4">
@@ -45,7 +47,7 @@ export default function Discover() {
                     <span className="text-3xl">{feature.icon}</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white mb-3 drop-shadow-md">
+                    <h3 className="text-lg font-semibold text-white mb-3 drop-shadow-md">
                       {feature.title}
                     </h3>
                     <p className="text-white/80 leading-relaxed">
@@ -60,10 +62,12 @@ export default function Discover() {
 
         <div className="page-section">
           <div className="glass-enhanced rounded-2xl p-8">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center drop-shadow-lg">
-              Why Choose TruFlo?
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 grid-spacing">
+            <div className="visual-hierarchy mb-8">
+              <h2 className="section-heading text-white drop-shadow-lg">
+                Why Choose TruFlo?
+              </h2>
+            </div>
+            <div className="content-grid content-grid-3">
               <div className="text-center space-y-4">
                 <div className="text-4xl mb-4">🎯</div>
                 <h3 className="text-lg font-semibold text-white">Personalized</h3>

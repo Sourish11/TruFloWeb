@@ -31,24 +31,26 @@ export default function Privacy() {
       <div className="page-content">
         <div className="page-section">
           <div className="glass-enhanced rounded-2xl p-8 content-spacing-lg">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 drop-shadow-2xl">
-              Privacy Policy
-            </h1>
-            <div className="text-white/80 space-y-2">
-              <p>Last updated: January 2025</p>
-              <p className="text-lg">
-                At TruFlo, we take your privacy seriously. This Privacy Policy explains how we collect, 
-                use, and protect your information when you use our services.
-              </p>
+            <div className="visual-hierarchy">
+              <h1 className="page-title text-white mb-8 drop-shadow-2xl">
+                Privacy Policy
+              </h1>
+              <div className="text-white/80 space-y-2">
+                <p>Last updated: January 2025</p>
+                <p className="text-lg">
+                  At TruFlo, we take your privacy seriously. This Privacy Policy explains how we collect, 
+                  use, and protect your information when you use our services.
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="page-section">
-          <div className="space-y-6">
+          <div className="content-wrapper">
             {sections.map((section, index) => (
               <div key={index} className="glass-card rounded-xl p-6">
-                <h2 className="text-xl font-semibold text-white mb-4 drop-shadow-md">
+                <h2 className="text-lg font-semibold text-white mb-4 drop-shadow-md">
                   {section.title}
                 </h2>
                 <p className="text-white/80 leading-relaxed">
@@ -61,7 +63,7 @@ export default function Privacy() {
 
         <div className="page-section">
           <div className="glass-enhanced rounded-2xl p-8 text-center">
-            <h2 className="text-2xl font-bold text-white mb-4">Questions?</h2>
+            <h2 className="section-heading text-white mb-4">Questions?</h2>
             <p className="text-white/80 mb-6">
               If you have any questions about our Privacy Policy or how we handle your data, 
               we're here to help.

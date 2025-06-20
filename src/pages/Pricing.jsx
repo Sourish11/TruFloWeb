@@ -55,18 +55,20 @@ export default function Pricing() {
       <div className="page-content">
         <div className="page-section">
           <div className="glass-enhanced rounded-2xl p-8 text-center content-spacing-lg">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 drop-shadow-2xl">
-              Choose Your Plan
-            </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              TruFlo follows a freemium model. Start for free and upgrade to unlock advanced AI tools, 
-              device sync, and exclusive rewards.
-            </p>
+            <div className="visual-hierarchy">
+              <h1 className="page-title text-white mb-8 drop-shadow-2xl">
+                Choose Your Plan
+              </h1>
+              <p className="text-lg text-white/90 leading-relaxed">
+                TruFlo follows a freemium model. Start for free and upgrade to unlock advanced AI tools, 
+                device sync, and exclusive rewards.
+              </p>
+            </div>
           </div>
         </div>
 
         <div className="page-section">
-          <div className="grid grid-cols-1 md:grid-cols-3 grid-spacing-lg max-w-6xl mx-auto">
+          <div className="content-grid content-grid-3 max-w-6xl mx-auto">
             {plans.map((plan, index) => (
               <div 
                 key={index} 
@@ -83,9 +85,9 @@ export default function Pricing() {
                 )}
                 
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-white">{plan.price}</span>
+                    <span className="text-3xl font-bold text-white">{plan.price}</span>
                     <span className="text-white/70 ml-2">/{plan.period}</span>
                   </div>
                   <p className="text-white/80 text-sm">{plan.description}</p>
@@ -116,7 +118,7 @@ export default function Pricing() {
 
         <div className="page-section">
           <div className="glass-enhanced rounded-2xl p-8 text-center">
-            <h2 className="text-2xl font-bold text-white mb-4">Additional Revenue Streams</h2>
+            <h2 className="section-heading text-white mb-4">Additional Revenue Streams</h2>
             <p className="text-white/80 max-w-2xl mx-auto">
               We also generate revenue through personalized short ads that actually help users discover 
               relevant productivity tools and resources, ensuring our platform remains sustainable while 

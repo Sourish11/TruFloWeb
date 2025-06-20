@@ -49,28 +49,30 @@ export default function Support() {
       <div className="page-content">
         <div className="page-section">
           <div className="glass-enhanced rounded-2xl p-8 text-center content-spacing-lg">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 drop-shadow-2xl">
-              Support Center
-            </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-              Find answers to common questions or get in touch with our support team.
-            </p>
-            
-            {/* Search Bar */}
-            <div className="max-w-md mx-auto">
-              <input
-                type="text"
-                placeholder="Search for help..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-3 glass-button rounded-lg text-white placeholder-white/60"
-              />
+            <div className="visual-hierarchy">
+              <h1 className="page-title text-white mb-8 drop-shadow-2xl">
+                Support Center
+              </h1>
+              <p className="text-lg text-white/90 leading-relaxed mb-8">
+                Find answers to common questions or get in touch with our support team.
+              </p>
+              
+              {/* Search Bar */}
+              <div className="max-w-md mx-auto">
+                <input
+                  type="text"
+                  placeholder="Search for help..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full px-4 py-3 glass-button rounded-lg text-white placeholder-white/60"
+                />
+              </div>
             </div>
           </div>
         </div>
 
         <div className="page-section">
-          <div className="grid grid-cols-1 md:grid-cols-3 grid-spacing-lg mb-12">
+          <div className="content-grid content-grid-3 mb-12">
             <div className="glass-card p-6 rounded-xl text-center hover">
               <div className="text-4xl mb-4">💬</div>
               <h3 className="text-lg font-semibold text-white mb-2">Live Chat</h3>
@@ -113,9 +115,11 @@ export default function Support() {
 
         <div className="page-section">
           <div className="glass-enhanced rounded-2xl p-8">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center drop-shadow-lg">
-              Frequently Asked Questions
-            </h2>
+            <div className="visual-hierarchy mb-8">
+              <h2 className="section-heading text-white drop-shadow-lg">
+                Frequently Asked Questions
+              </h2>
+            </div>
             
             {filteredFaqs.length > 0 ? (
               <Accordion className="space-y-4">
@@ -139,7 +143,7 @@ export default function Support() {
 
         <div className="page-section">
           <div className="glass-enhanced rounded-2xl p-8 text-center">
-            <h2 className="text-2xl font-bold text-white mb-4">Still Need Help?</h2>
+            <h2 className="section-heading text-white mb-4">Still Need Help?</h2>
             <p className="text-white/80 mb-6">
               Can't find what you're looking for? Our support team is here to help you succeed.
             </p>
