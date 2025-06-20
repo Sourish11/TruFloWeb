@@ -21,22 +21,21 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative">
+    <footer className="relative smooth-transition">
       <div className="glass-enhanced border-t border-white/10 relative z-10">
-        <div className="container mx-auto py-16">
-          {/* Main Footer Content */}
-          <div className="footer-grid">
+        <div className="container mx-auto section-spacing">
+          <div className="grid grid-cols-1 md:grid-cols-4 grid-spacing-lg">
             {/* Brand Section */}
-            <div className="footer-column">
-              <div className="flex items-center space-x-3 mb-4">
-                <span className="text-2xl font-bold text-white">
+            <div className="space-y-6 md:col-span-1">
+              <div className="flex items-center space-x-3">
+                <span className="text-2xl font-bold text-white drop-shadow-md">
                   TruFlo
                 </span>
               </div>
-              <p className="text-white/80 text-sm leading-relaxed max-w-sm">
+              <p className="text-white/80 text-sm leading-relaxed max-w-xs">
                 The productivity app that understands your mood to help you break free from distractions.
               </p>
-              <div className="flex space-x-4 pt-4">
+              <div className="flex space-x-4 pt-2">
                 <a
                   href="https://discord.gg/eZHfGJTRNh"
                   target="_blank"
@@ -53,33 +52,36 @@ export default function Footer() {
 
             {/* Links Sections */}
             {Object.entries(footerLinks).map(([category, links]) => (
-              <div key={category} className="footer-column">
-                <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-2">
+              <div key={category} className="space-y-6">
+                <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
                   {category}
                 </h3>
-                <div className="footer-links">
+                <ul className="space-y-4">
                   {links.map((link) => (
-                    <Link
-                      key={link.name}
-                      to={link.href}
-                      className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-medium"
-                    >
-                      {link.name}
-                    </Link>
+                    <li key={link.name}>
+                      <Link
+                        to={link.href}
+                        className="text-white/70 hover:text-white transition-colors duration-300 text-sm font-medium block py-1"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </div>
 
           {/* Bottom Section */}
-          <div className="footer-bottom">
-            <p className="text-white/60 text-sm font-medium">
-              © {currentYear} TruFlo. All rights reserved.
-            </p>
-            <p className="text-white/60 text-sm font-medium flex items-center">
-              Made with <span className="text-red-400 mx-2">❤️</span> for productivity enthusiasts
-            </p>
+          <div className="mt-16 pt-8 border-t border-white/10">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <p className="text-white/60 text-sm font-medium">
+                © {currentYear} TruFlo. All rights reserved.
+              </p>
+              <p className="text-white/60 text-sm font-medium flex items-center">
+                Made with <span className="text-red-400 mx-2">❤️</span> for productivity enthusiasts
+              </p>
+            </div>
           </div>
         </div>
       </div>
