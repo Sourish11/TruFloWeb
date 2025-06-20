@@ -121,6 +121,45 @@ export default function TruFloLandingPage() {
     }
   ];
 
+  const comparisonFeatures = [
+    {
+      feature: 'Mood Recognition',
+      truFlo: 'Voice-based emotion check-ins',
+      others: 'Ignored',
+      truFloIcon: '🧠',
+      othersIcon: '❌',
+      truFloColor: 'text-emerald-400',
+      othersColor: 'text-red-400'
+    },
+    {
+      feature: 'Personalized Challenges',
+      truFlo: 'Influencer-led + adaptive',
+      others: 'Static or solo tasks',
+      truFloIcon: '🎯',
+      othersIcon: '⚠️',
+      truFloColor: 'text-emerald-400',
+      othersColor: 'text-yellow-400'
+    },
+    {
+      feature: 'AI-Powered Routines',
+      truFlo: 'Learns your behavior daily',
+      others: 'Limited personalization',
+      truFloIcon: '🤖',
+      othersIcon: '⚠️',
+      truFloColor: 'text-emerald-400',
+      othersColor: 'text-yellow-400'
+    },
+    {
+      feature: 'Community Accountability',
+      truFlo: 'Leaderboards, XP, streaks',
+      others: 'Mostly solo-based',
+      truFloIcon: '🏆',
+      othersIcon: '⚠️',
+      truFloColor: 'text-emerald-400',
+      othersColor: 'text-yellow-400'
+    }
+  ];
+
   return (
     <div className="min-h-screen relative">
       {/* Hero Section */}
@@ -420,56 +459,185 @@ export default function TruFloLandingPage() {
         </div>
       </section>
 
-      {/* Comparison Section */}
+      {/* Enhanced Comparison Section */}
       <section className="section-spacing">
         <div className="container mx-auto px-4">
           <div className="visual-hierarchy mb-16">
             <h2 className="page-title text-white mb-6 drop-shadow-2xl">
               What Makes Us Different
             </h2>
+            <p className="text-lg text-white/90 drop-shadow-lg mb-8">
+              See how TruFlo revolutionizes productivity compared to traditional apps
+            </p>
           </div>
 
-          <Card className="max-w-4xl mx-auto overflow-hidden glass-enhanced shadow-2xl">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-white/5 border-b border-white/10">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-white drop-shadow-md">
-                      Feature
-                    </th>
-                    <th className="ui-text px-6 py-4 text-center text-sm font-semibold gradient-text-white drop-shadow-md">
-                      TruFlo
-                    </th>
-                    <th className="ui-text px-6 py-4 text-center text-sm font-semibold text-white/60 drop-shadow-md">
-                      Others
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-white/10">
-                  <tr>
-                    <td className="px-6 py-4 text-sm text-white drop-shadow-sm">Mood Recognition</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Voice-based emotion check-ins</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-red-400 drop-shadow-sm">❌ Ignored</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 text-sm text-white drop-shadow-sm">Personalized Challenges</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Influencer-led + adaptive</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-yellow-400 drop-shadow-sm">⚠ Static or solo tasks</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 text-sm text-white drop-shadow-sm">AI-Powered Routines</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Learns your behavior daily</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-yellow-400 drop-shadow-sm">⚠ Limited personalization</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-4 text-sm text-white drop-shadow-sm">Community Accountability</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-green-400 drop-shadow-sm">✅ Leaderboards, XP, streaks</td>
-                    <td className="ui-text px-6 py-4 text-center text-sm text-yellow-400 drop-shadow-sm">⚠ Mostly solo-based</td>
-                  </tr>
-                </tbody>
-              </table>
+          {/* Desktop Version - Enhanced Cards */}
+          <div className="hidden lg:block max-w-6xl mx-auto">
+            <div className="grid grid-cols-3 gap-8 mb-8">
+              {/* Header Cards */}
+              <div className="glass-card p-6 rounded-xl text-center">
+                <h3 className="ui-text text-lg font-semibold text-white/80 drop-shadow-md">
+                  Feature
+                </h3>
+              </div>
+              <div className="glass-enhanced p-6 rounded-xl text-center border-2 border-purple-400/30 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10"></div>
+                <div className="relative z-10">
+                  <div className="text-3xl mb-2">🚀</div>
+                  <h3 className="ui-text text-xl font-bold gradient-text-white drop-shadow-md">
+                    TruFlo
+                  </h3>
+                  <p className="text-sm text-white/70 mt-1">Next-Gen Productivity</p>
+                </div>
+              </div>
+              <div className="glass-card p-6 rounded-xl text-center">
+                <div className="text-3xl mb-2">📱</div>
+                <h3 className="ui-text text-lg font-semibold text-white/60 drop-shadow-md">
+                  Traditional Apps
+                </h3>
+                <p className="text-sm text-white/50 mt-1">Old-School Approach</p>
+              </div>
             </div>
-          </Card>
+
+            {/* Feature Comparison Cards */}
+            <div className="space-y-6">
+              {comparisonFeatures.map((item, index) => (
+                <div key={index} className="grid grid-cols-3 gap-8 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                  {/* Feature Name */}
+                  <Card className="p-6 glass-enhanced shadow-xl">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">{item.truFloIcon}</span>
+                      <h4 className="text-lg font-semibold text-white drop-shadow-md">
+                        {item.feature}
+                      </h4>
+                    </div>
+                  </Card>
+
+                  {/* TruFlo Feature */}
+                  <Card className="p-6 glass-enhanced shadow-xl border-2 border-emerald-400/30 hover:border-emerald-400/50 transition-all duration-300 hover:scale-[1.02] relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-green-500/5"></div>
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-2xl">{item.truFloIcon}</span>
+                        <div className="flex items-center space-x-1">
+                          <span className="text-emerald-400 text-lg">✨</span>
+                          <span className="ui-text text-xs font-semibold text-emerald-400 bg-emerald-400/20 px-2 py-1 rounded-full">
+                            ADVANCED
+                          </span>
+                        </div>
+                      </div>
+                      <p className={`ui-text font-semibold ${item.truFloColor} drop-shadow-sm text-base`}>
+                        {item.truFlo}
+                      </p>
+                    </div>
+                  </Card>
+
+                  {/* Others Feature */}
+                  <Card className="p-6 glass-card shadow-xl border border-white/10 hover:border-white/20 transition-all duration-300 relative">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-2xl opacity-60">{item.othersIcon}</span>
+                      <span className="ui-text text-xs font-semibold text-white/40 bg-white/10 px-2 py-1 rounded-full">
+                        LIMITED
+                      </span>
+                    </div>
+                    <p className={`ui-text font-medium ${item.othersColor} drop-shadow-sm text-base opacity-80`}>
+                      {item.others}
+                    </p>
+                  </Card>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom CTA Card */}
+            <Card className="mt-12 p-8 glass-enhanced shadow-2xl border-2 border-purple-400/30 text-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-blue-600/10 to-purple-600/10"></div>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4">🎯</div>
+                <h3 className="text-2xl font-bold text-white mb-4 drop-shadow-md">
+                  Experience the TruFlo Difference
+                </h3>
+                <p className="text-white/80 mb-6 max-w-2xl mx-auto">
+                  Join the productivity revolution and discover what happens when technology truly understands you.
+                </p>
+                <Button
+                  size="lg"
+                  onClick={() => navigate('/signup')}
+                  className="text-lg px-8 py-4 shadow-2xl"
+                >
+                  Start Your Free Trial
+                </Button>
+              </div>
+            </Card>
+          </div>
+
+          {/* Mobile/Tablet Version - Stacked Cards */}
+          <div className="lg:hidden max-w-2xl mx-auto space-y-8">
+            {comparisonFeatures.map((item, index) => (
+              <Card key={index} className="glass-enhanced shadow-xl p-6 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="text-center mb-6">
+                  <span className="text-3xl mb-2 block">{item.truFloIcon}</span>
+                  <h3 className="text-xl font-bold text-white drop-shadow-md">
+                    {item.feature}
+                  </h3>
+                </div>
+
+                <div className="space-y-4">
+                  {/* TruFlo */}
+                  <div className="p-4 bg-gradient-to-r from-emerald-500/10 to-green-500/10 border-2 border-emerald-400/30 rounded-lg">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center space-x-2">
+                        <span className="text-lg">🚀</span>
+                        <span className="ui-text font-bold text-white">TruFlo</span>
+                      </div>
+                      <span className="ui-text text-xs font-semibold text-emerald-400 bg-emerald-400/20 px-2 py-1 rounded-full">
+                        ADVANCED
+                      </span>
+                    </div>
+                    <p className={`ui-text font-semibold ${item.truFloColor}`}>
+                      {item.truFlo}
+                    </p>
+                  </div>
+
+                  {/* Others */}
+                  <div className="p-4 bg-white/5 border border-white/20 rounded-lg">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center space-x-2">
+                        <span className="text-lg opacity-60">📱</span>
+                        <span className="ui-text font-medium text-white/70">Traditional Apps</span>
+                      </div>
+                      <span className="ui-text text-xs font-semibold text-white/40 bg-white/10 px-2 py-1 rounded-full">
+                        LIMITED
+                      </span>
+                    </div>
+                    <p className={`ui-text font-medium ${item.othersColor} opacity-80`}>
+                      {item.others}
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+
+            {/* Mobile CTA */}
+            <Card className="glass-enhanced shadow-2xl p-8 text-center border-2 border-purple-400/30 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10"></div>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4">🎯</div>
+                <h3 className="text-xl font-bold text-white mb-4 drop-shadow-md">
+                  Ready to Upgrade?
+                </h3>
+                <p className="text-white/80 mb-6">
+                  Experience next-generation productivity today.
+                </p>
+                <Button
+                  size="lg"
+                  onClick={() => navigate('/signup')}
+                  className="w-full text-lg py-4 shadow-2xl"
+                >
+                  Start Your Free Trial
+                </Button>
+              </div>
+            </Card>
+          </div>
         </div>
       </section>
 
