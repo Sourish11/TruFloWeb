@@ -49,6 +49,7 @@ export default function TruFloLandingPage() {
 
   const handleRevealContent = () => {
     setContentRevealed(true);
+    // Smooth scroll to the revealed content
     setTimeout(() => {
       const revealedSection = document.getElementById('revealed-content');
       if (revealedSection) {
@@ -212,33 +213,6 @@ export default function TruFloLandingPage() {
       othersColor: 'text-yellow-400',
       trufloIcon: '✅',
       othersIcon: '⚠'
-    }
-  ];
-
-  const problemAreas = [
-    {
-      title: 'Task Abandonment',
-      description: 'You start with good intentions but lose motivation halfway through important projects.',
-      icon: '📉',
-      color: 'from-red-500/20 to-red-600/20',
-      borderColor: 'border-red-400/40',
-      stats: '73% of people abandon tasks within the first hour'
-    },
-    {
-      title: 'Guilt from Time-Wasting',
-      description: 'You know you\'re procrastinating but can\'t seem to break the cycle of distraction.',
-      icon: '⏰',
-      color: 'from-orange-500/20 to-orange-600/20',
-      borderColor: 'border-orange-400/40',
-      stats: 'Average person wastes 2.5 hours daily on unproductive activities'
-    },
-    {
-      title: 'Priority Confusion',
-      description: 'Everything feels urgent, but nothing feels important. You\'re busy but not productive.',
-      icon: '🔄',
-      color: 'from-yellow-500/20 to-yellow-600/20',
-      borderColor: 'border-yellow-400/40',
-      stats: '68% struggle with task prioritization daily'
     }
   ];
 
@@ -675,126 +649,131 @@ export default function TruFloLandingPage() {
             </div>
           </section>
 
-          {/* Problem Section - Completely Redesigned */}
+          {/* You're Not Lazy Section - Redesigned with Colorful Text */}
           <section id="about" className="section-spacing relative">
+            {/* Dark overlay for problem section */}
+            <div className="absolute inset-0 bg-black/40 z-0"></div>
+            
             <div className="container mx-auto px-4 relative z-10">
-              {/* Header Section */}
-              <div className="text-center mb-20">
-                <div className="relative">
-                  <div className="relative z-10 py-8">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 drop-shadow-2xl font-heading leading-tight">
-                      You're not lazy.{' '}
-                      <span className="bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
-                        You're overwhelmed.
-                      </span>
-                    </h2>
-                    <p className="text-xl md:text-2xl text-white/90 drop-shadow-lg max-w-4xl mx-auto font-body leading-relaxed">
-                      Traditional productivity apps ignore the most important factor: <span className="font-bold text-purple-300">how you feel</span>. 
-                      They treat you like a machine, not a human with emotions, energy levels, and natural rhythms.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <div className="max-w-6xl mx-auto">
+                <div className="glass-enhanced rounded-3xl p-12 md:p-16 lg:p-20 text-center shadow-2xl border-2 border-white/20 relative">
+                  {/* Additional dark background for text content */}
+                  <div className="absolute inset-0 bg-black/25 rounded-3xl blur-xl"></div>
+                  
+                  <div className="space-y-12 relative z-10">
+                    {/* Main Heading with Colorful Text */}
+                    <div className="space-y-6">
+                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-2xl font-heading">
+                        <span className="text-white">You're not </span>
+                        <span className="bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
+                          lazy
+                        </span>
+                        <span className="text-white">.</span>
+                        <br />
+                        <span className="text-white">You're </span>
+                        <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent">
+                          overwhelmed
+                        </span>
+                        <span className="text-white">.</span>
+                      </h2>
+                      
+                      <p className="text-xl md:text-2xl text-white/90 drop-shadow-lg max-w-4xl mx-auto font-body">
+                        Traditional productivity apps ignore the most important factor: 
+                        <span className="font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"> how you feel</span>.
+                      </p>
+                    </div>
 
-              {/* Main Content Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-                {/* Problems List */}
-                <div className="space-y-8">
-                  <div className="mb-8">
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-heading">
-                      The Real Problems You Face Daily
-                    </h3>
-                    <p className="text-white/80 text-lg font-body">
-                      These aren't character flaws—they're symptoms of using tools that don't understand human psychology.
-                    </p>
-                  </div>
-
-                  {problemAreas.map((problem, index) => (
-                    <div key={index} className="group">
-                      <Card className={`p-8 glass-enhanced shadow-xl hover:scale-[1.02] transition-all duration-500 bg-gradient-to-r ${problem.color} border-2 ${problem.borderColor}`}>
-                        <div className="flex items-start space-x-6">
-                          <div className="flex-shrink-0">
-                            <div className={`w-16 h-16 bg-gradient-to-r ${problem.color} rounded-2xl flex items-center justify-center border-2 ${problem.borderColor} shadow-xl group-hover:scale-110 transition-transform duration-300`}>
-                              <span className="text-3xl drop-shadow-md">{problem.icon}</span>
+                    {/* Problem Cards Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                      <div className="group">
+                        <Card className="p-8 hover glass-enhanced shadow-xl h-full border-2 border-red-400/20 hover:border-red-400/40 transition-all duration-300">
+                          <div className="text-center space-y-6">
+                            <div className="w-20 h-20 mx-auto bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-full flex items-center justify-center border-2 border-red-400/30 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                              <span className="text-4xl drop-shadow-md">📉</span>
                             </div>
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="text-xl font-bold text-white mb-3 drop-shadow-md font-heading">
-                              {problem.title}
-                            </h4>
-                            <p className="text-white/90 drop-shadow-sm font-body leading-relaxed mb-4">
-                              {problem.description}
-                            </p>
-                            <div className="inline-flex items-center px-3 py-1 bg-white/10 rounded-full border border-white/20">
-                              <span className="text-white/70 text-sm font-medium font-ui">
-                                {problem.stats}
+                            <h3 className="text-xl font-bold drop-shadow-md font-heading">
+                              <span className="bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">
+                                Task Abandonment
                               </span>
+                            </h3>
+                            <p className="text-white/80 drop-shadow-sm font-body leading-relaxed">
+                              You start with good intentions but lose motivation halfway through.
+                            </p>
+                          </div>
+                        </Card>
+                      </div>
+
+                      <div className="group">
+                        <Card className="p-8 hover glass-enhanced shadow-xl h-full border-2 border-orange-400/20 hover:border-orange-400/40 transition-all duration-300">
+                          <div className="text-center space-y-6">
+                            <div className="w-20 h-20 mx-auto bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-full flex items-center justify-center border-2 border-orange-400/30 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                              <span className="text-4xl drop-shadow-md">😞</span>
                             </div>
+                            <h3 className="text-xl font-bold drop-shadow-md font-heading">
+                              <span className="bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
+                                Guilt from Time-Wasting
+                              </span>
+                            </h3>
+                            <p className="text-white/80 drop-shadow-sm font-body leading-relaxed">
+                              You know you're procrastinating but can't seem to stop.
+                            </p>
+                          </div>
+                        </Card>
+                      </div>
+
+                      <div className="group">
+                        <Card className="p-8 hover glass-enhanced shadow-xl h-full border-2 border-yellow-400/20 hover:border-yellow-400/40 transition-all duration-300">
+                          <div className="text-center space-y-6">
+                            <div className="w-20 h-20 mx-auto bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 rounded-full flex items-center justify-center border-2 border-yellow-400/30 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                              <span className="text-4xl drop-shadow-md">🔄</span>
+                            </div>
+                            <h3 className="text-xl font-bold drop-shadow-md font-heading">
+                              <span className="bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text text-transparent">
+                                Confusion Around Priorities
+                              </span>
+                            </h3>
+                            <p className="text-white/80 drop-shadow-sm font-body leading-relaxed">
+                              Everything feels urgent, but nothing feels important.
+                            </p>
+                          </div>
+                        </Card>
+                      </div>
+                    </div>
+
+                    {/* Solution Statement */}
+                    <div className="mt-16 space-y-6">
+                      <div className="flex items-center justify-center space-x-4 py-8">
+                        <div className="h-px bg-gradient-to-r from-transparent via-purple-400/60 to-transparent flex-1" />
+                        <div className="relative">
+                          <div className="w-16 h-16 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-full flex items-center justify-center border-2 border-white/20 backdrop-blur-sm">
+                            <span className="text-3xl animate-brain-pulse">💡</span>
                           </div>
                         </div>
+                        <div className="h-px bg-gradient-to-r from-transparent via-purple-400/60 to-transparent flex-1" />
+                      </div>
+                      
+                      <p className="text-2xl md:text-3xl font-bold leading-relaxed drop-shadow-lg font-heading">
+                        <span className="text-white">That's why </span>
+                        <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                          TruFlo adapts to your emotions
+                        </span>
+                        <span className="text-white">, not the other way around.</span>
+                      </p>
+                    </div>
+
+                    {/* Video Demo */}
+                    <div className="mt-12">
+                      <Card className="p-4 glass-enhanced shadow-2xl max-w-2xl mx-auto">
+                        <video
+                          src={landingVideo}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="rounded-lg w-full shadow-lg"
+                        />
                       </Card>
                     </div>
-                  ))}
-
-                  {/* Call to Action */}
-                  <div className="mt-12 p-8 glass-enhanced rounded-2xl border-2 border-purple-400/30 bg-gradient-to-r from-purple-500/10 to-blue-500/10">
-                    <h4 className="text-xl font-bold text-white mb-4 font-heading">
-                      Sound Familiar?
-                    </h4>
-                    <p className="text-white/90 font-body leading-relaxed mb-6">
-                      You're not broken. You just need a productivity system that works <em className="italic text-purple-300">with</em> your human nature, not against it.
-                    </p>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full animate-pulse"></div>
-                      <span className="text-white/80 font-medium font-ui">
-                        That's exactly what TruFlo provides
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Video/Visual Side */}
-                <div className="relative">
-                  <div className="relative">
-                    <Card className="p-6 glass-enhanced shadow-2xl border-2 border-white/20">
-                      <video
-                        src={landingVideo}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="rounded-xl w-full shadow-2xl"
-                      />
-                    </Card>
-                    
-                    {/* Floating stats */}
-                    <div className="absolute -top-6 -right-6 p-4 glass-enhanced rounded-xl border border-white/20 shadow-xl">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-red-400 font-ui">2.5hrs</div>
-                        <div className="text-white/70 text-xs font-body">wasted daily</div>
-                      </div>
-                    </div>
-                    
-                    <div className="absolute -bottom-6 -left-6 p-4 glass-enhanced rounded-xl border border-white/20 shadow-xl">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-orange-400 font-ui">73%</div>
-                        <div className="text-white/70 text-xs font-body">abandon tasks</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Section - The Solution Preview */}
-              <div className="mt-20 text-center">
-                <div className="max-w-4xl mx-auto">
-                  <div className="p-8 glass-enhanced rounded-2xl border-2 border-green-400/30 bg-gradient-to-r from-green-500/10 to-teal-500/10">
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-heading">
-                      What if your productivity app actually understood you?
-                    </h3>
-                    <p className="text-lg text-white/90 font-body leading-relaxed">
-                      Imagine a system that adapts to your energy levels, respects your emotional state, and guides you toward tasks you're actually capable of completing right now. That's the TruFlo difference.
-                    </p>
                   </div>
                 </div>
               </div>
