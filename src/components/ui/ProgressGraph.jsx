@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader } from './Card';
 import { Button } from './Button';
 
+<<<<<<< HEAD
 // Generate realistic demo data with daily variations
+=======
+// Demo data for the progress graph
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
 const generateDemoData = () => {
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   const weeks = ['Week 1', 'Week 2', 'Week 3', 'Week 4'];

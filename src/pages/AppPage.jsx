@@ -30,7 +30,10 @@ export default function AppPage() {
     const [username, setUsername] = useState("");
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [showOnboarding, setShowOnboarding] = useState(false);
+<<<<<<< HEAD
     const [showDemoNotice, setShowDemoNotice] = useState(true);
+=======
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
     const [profilePicture, setProfilePicture] = useState(null);
     const [userStats, setUserStats] = useState({
         xp: 0,
@@ -64,12 +67,15 @@ export default function AppPage() {
                 if (savedStats) {
                     setUserStats(JSON.parse(savedStats));
                 }
+<<<<<<< HEAD
 
                 // Check if demo notice was shown
                 const demoNoticeShown = localStorage.getItem(`demo_notice_${u.uid}`);
                 if (demoNoticeShown) {
                     setShowDemoNotice(false);
                 }
+=======
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
             } else {
                 navigate("/login");
             }
@@ -89,6 +95,7 @@ export default function AppPage() {
         setShowOnboarding(false);
     };
 
+<<<<<<< HEAD
     const handleProfilePictureUpload = (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -107,6 +114,8 @@ export default function AppPage() {
         localStorage.setItem(`demo_notice_${user.uid}`, 'true');
     };
 
+=======
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
     if (!user) {
         return (
             <div className="min-h-screen flex items-center justify-center">
@@ -129,6 +138,7 @@ export default function AppPage() {
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/85" />
             </div>
 
+<<<<<<< HEAD
             {/* Demo Version Notice */}
             {showDemoNotice && (
                 <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 max-w-md w-full mx-4">
@@ -159,6 +169,8 @@ export default function AppPage() {
                 </div>
             )}
 
+=======
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
             {/* Mobile Sidebar Overlay */}
             {sidebarOpen && (
                 <div 
@@ -167,6 +179,7 @@ export default function AppPage() {
                 />
             )}
 
+<<<<<<< HEAD
             {/* Compact Sidebar - Hidden by default, shows on toggle */}
             <div className={`
                 fixed inset-y-0 left-0 z-50 w-64 glass-nav transform transition-transform duration-300 ease-in-out border-r border-white/10
@@ -186,6 +199,27 @@ export default function AppPage() {
                                     TruFlo
                                 </h2>
                                 <p className="text-xs text-white/70 font-body">
+=======
+            {/* Redesigned Sidebar - Hidden by default, shows on toggle */}
+            <div className={`
+                fixed inset-y-0 left-0 z-50 w-80 glass-nav transform transition-transform duration-300 ease-in-out border-r border-white/10
+                ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+            `}>
+                <div className="flex flex-col h-full">
+                    {/* Enhanced Header with Logo */}
+                    <div className="flex items-center justify-between p-6 border-b border-white/10">
+                        <div className="flex items-center space-x-3">
+                            <img
+                                src={trufloLogo}
+                                alt="TruFlo Logo"
+                                className="h-10 w-auto"
+                            />
+                            <div>
+                                <h2 className="text-xl font-bold text-white font-heading">
+                                    TruFlo
+                                </h2>
+                                <p className="text-sm text-white/70 font-body">
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
                                     {getGreeting()}, {username || user.email?.split('@')[0]}
                                 </p>
                             </div>
@@ -200,6 +234,7 @@ export default function AppPage() {
                         </button>
                     </div>
 
+<<<<<<< HEAD
                     {/* Compact User Profile Section */}
                     <div className="p-4 border-b border-white/10">
                         <div className="flex items-center space-x-3">
@@ -238,6 +273,34 @@ export default function AppPage() {
                                 <div className="w-full bg-white/20 rounded-full h-1.5 mt-1">
                                     <div 
                                         className="bg-gradient-to-r from-purple-400 to-blue-400 h-1.5 rounded-full transition-all duration-500"
+=======
+                    {/* User Profile Section */}
+                    <div className="p-6 border-b border-white/10">
+                        <div className="flex items-center space-x-4">
+                            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white/30">
+                                {profilePicture ? (
+                                    <img
+                                        src={profilePicture}
+                                        alt="Profile"
+                                        className="w-full h-full object-cover"
+                                    />
+                                ) : (
+                                    <div className="w-full h-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-white text-xl font-bold">
+                                        {(username || user.email)[0].toUpperCase()}
+                                    </div>
+                                )}
+                            </div>
+                            <div className="flex-1">
+                                <div className="text-white font-semibold font-heading">
+                                    {username || user.email?.split('@')[0]}
+                                </div>
+                                <div className="text-white/60 text-sm font-body">
+                                    Level {userStats.level} • {userStats.xp} XP
+                                </div>
+                                <div className="w-full bg-white/20 rounded-full h-2 mt-2">
+                                    <div 
+                                        className="bg-gradient-to-r from-purple-400 to-blue-400 h-2 rounded-full transition-all duration-500"
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
                                         style={{ width: `${(userStats.xp % 100)}%` }}
                                     />
                                 </div>
@@ -245,9 +308,15 @@ export default function AppPage() {
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     {/* Compact Navigation */}
                     <nav className="flex-1 p-4 space-y-2">
                         <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-3 font-ui">
+=======
+                    {/* Enhanced Navigation */}
+                    <nav className="flex-1 p-6 space-y-3">
+                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-4 font-ui">
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
                             Navigation
                         </div>
                         {sections.map((section) => (
@@ -255,7 +324,11 @@ export default function AppPage() {
                                 key={section.key}
                                 to={`/app/${section.key}`}
                                 className={({ isActive }) =>
+<<<<<<< HEAD
                                     `flex items-center space-x-3 px-3 py-2 rounded-lg transition-all duration-300 font-ui group text-sm ${
+=======
+                                    `flex items-center space-x-4 px-4 py-3 rounded-xl transition-all duration-300 font-ui group ${
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
                                         isActive 
                                             ? "bg-gradient-to-r from-purple-500/30 to-blue-500/30 text-white font-semibold shadow-lg border border-white/20" 
                                             : "text-white/80 hover:text-white hover:bg-white/10 hover:translate-x-1"
@@ -263,7 +336,11 @@ export default function AppPage() {
                                 }
                                 onClick={() => setSidebarOpen(false)}
                             >
+<<<<<<< HEAD
                                 <span className="text-lg group-hover:scale-110 transition-transform duration-200">
+=======
+                                <span className="text-xl group-hover:scale-110 transition-transform duration-200">
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
                                     {section.icon}
                                 </span>
                                 <span className="font-medium">{section.label}</span>
@@ -276,6 +353,7 @@ export default function AppPage() {
                         ))}
                     </nav>
 
+<<<<<<< HEAD
                     {/* Compact Quick Stats */}
                     <div className="p-4 border-t border-white/10">
                         <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-3 font-ui">
@@ -288,11 +366,26 @@ export default function AppPage() {
                             </div>
                             <div className="text-center p-2 bg-white/5 rounded-lg">
                                 <div className="text-sm font-bold text-blue-400 font-ui">2.5h</div>
+=======
+                    {/* Quick Stats */}
+                    <div className="p-6 border-t border-white/10">
+                        <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-4 font-ui">
+                            Today's Stats
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="text-center p-3 bg-white/5 rounded-lg">
+                                <div className="text-lg font-bold text-green-400 font-ui">8</div>
+                                <div className="text-xs text-white/70 font-body">Tasks</div>
+                            </div>
+                            <div className="text-center p-3 bg-white/5 rounded-lg">
+                                <div className="text-lg font-bold text-blue-400 font-ui">2.5h</div>
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
                                 <div className="text-xs text-white/70 font-body">Focus</div>
                             </div>
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     {/* Compact Logout Section */}
                     <div className="p-4 border-t border-white/10">
                         <Button
@@ -300,6 +393,14 @@ export default function AppPage() {
                             onClick={handleLogout}
                             className="w-full justify-center text-sm"
                             size="sm"
+=======
+                    {/* Enhanced Logout Section */}
+                    <div className="p-6 border-t border-white/10">
+                        <Button
+                            variant="glass"
+                            onClick={handleLogout}
+                            className="w-full justify-center"
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
                         >
                             <span className="mr-2">🚪</span>
                             Log Out
@@ -310,6 +411,7 @@ export default function AppPage() {
 
             {/* Main Content */}
             <div className="flex-1 flex flex-col overflow-hidden relative z-10">
+<<<<<<< HEAD
                 {/* Compact Top Navigation Bar */}
                 <div className="glass-nav border-b border-white/10">
                     <div className="flex items-center justify-between p-3">
@@ -320,6 +422,18 @@ export default function AppPage() {
                                 onClick={() => setSidebarOpen(true)}
                             >
                                 <svg className="w-5 h-5 text-white group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+=======
+                {/* Redesigned Top Navigation Bar */}
+                <div className="glass-nav border-b border-white/10">
+                    <div className="flex items-center justify-between p-4">
+                        <div className="flex items-center space-x-4">
+                            {/* Hamburger Menu Button */}
+                            <button
+                                className="p-3 rounded-xl hover:bg-white/10 transition-all duration-200 group"
+                                onClick={() => setSidebarOpen(true)}
+                            >
+                                <svg className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             </button>
@@ -335,14 +449,24 @@ export default function AppPage() {
                         </div>
 
                         {/* Right Side - Compact Stats & Profile */}
+<<<<<<< HEAD
                         <div className="flex items-center space-x-3">
                             {/* Quick XP Display */}
                             <div className="hidden md:flex items-center space-x-2 px-3 py-1.5 bg-white/10 rounded-lg border border-white/20">
+=======
+                        <div className="flex items-center space-x-4">
+                            {/* Quick XP Display */}
+                            <div className="hidden md:flex items-center space-x-3 px-4 py-2 bg-white/10 rounded-xl border border-white/20">
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
                                 <div className="text-right">
                                     <div className="text-white/80 text-xs font-ui">Level {userStats.level}</div>
                                     <div className="text-white text-sm font-semibold font-ui">{userStats.xp} XP</div>
                                 </div>
+<<<<<<< HEAD
                                 <div className="w-12 bg-white/20 rounded-full h-1.5">
+=======
+                                <div className="w-16 bg-white/20 rounded-full h-1.5">
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
                                     <div 
                                         className="bg-gradient-to-r from-purple-400 to-blue-400 h-1.5 rounded-full transition-all duration-500"
                                         style={{ width: `${(userStats.xp % 100)}%` }}
@@ -351,7 +475,11 @@ export default function AppPage() {
                             </div>
                             
                             {/* Compact User Avatar */}
+<<<<<<< HEAD
                             <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-white/30 cursor-pointer hover:scale-105 transition-transform duration-200">
+=======
+                            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/30 cursor-pointer hover:scale-105 transition-transform duration-200">
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
                                 {profilePicture ? (
                                     <img
                                         src={profilePicture}
@@ -359,7 +487,11 @@ export default function AppPage() {
                                         className="w-full h-full object-cover"
                                     />
                                 ) : (
+<<<<<<< HEAD
                                     <div className="w-full h-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-white text-xs font-bold">
+=======
+                                    <div className="w-full h-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-white text-sm font-bold">
+>>>>>>> ed04049be441cc63e275f2a6c440630a284d11d9
                                         {(username || user.email)[0].toUpperCase()}
                                     </div>
                                 )}
