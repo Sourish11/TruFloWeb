@@ -528,12 +528,11 @@ export default function TruFloLandingPage() {
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 drop-shadow-2xl font-heading">
                       How TruFlo Works
                     </h2>
-                    <div className="h-screen flex items-center justify-center">
-                      <p className="text-xl text-white/90 drop-shadow-lg max-w-4xl mx-auto font-body text-center">
-                        Experience the revolutionary 5-step process that transforms your productivity
-                        through intelligent mood recognition and adaptive task management.
-                      </p>
-                    </div>
+                    <p className="text-xl text-white/90 drop-shadow-lg max-w-4xl mx-auto font-body">
+                      Experience the revolutionary 5-step process that
+                      transforms your productivity through intelligent mood
+                      recognition and adaptive task management.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -679,7 +678,7 @@ export default function TruFloLandingPage() {
                 <div className="relative">
                   <div className="relative z-10 py-8">
                     <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-yellow-500/30 to-orange-500/30 rounded-full border-2 border-white/30 mb-8 shadow-xl">
-                      <span className="text-5xl">🌟</span>
+                      <span className="text-5xl">���</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-2xl font-heading">
                       Trusted by Industry Leaders
@@ -1071,7 +1070,8 @@ export default function TruFloLandingPage() {
                       Ready to Transform Your Productivity?
                     </h2>
                     <p className="text-xl text-white/90 mb-8 drop-shadow-lg font-body">
-                      Join others who are already hyped up for TruFlo.
+                      Join thousands of others who are already building better
+                      habits with TruFlo.
                     </p>
                     <p className="text-lg text-white/70 mb-8 font-body">
                       The future of productivity is here. Are you ready to
@@ -1112,7 +1112,7 @@ export default function TruFloLandingPage() {
 
                       <div className="mt-3 text-center">
                         <p className="text-white/60 text-xs font-body">
-                          Join the other people already on the waitlist. No spam,
+                          Join 10,000+ people already on the waitlist. No spam,
                           just updates.
                         </p>
                       </div>
